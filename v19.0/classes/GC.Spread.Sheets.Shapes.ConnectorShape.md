@@ -1,0 +1,1115 @@
+# Class: ConnectorShape
+
+[Sheets](../modules/GC.Spread.Sheets.md).[Shapes](../modules/GC.Spread.Sheets.Shapes.md).ConnectorShape
+
+## Hierarchy
+
+- [`ShapeBase`](GC.Spread.Sheets.Shapes.ShapeBase.md)
+
+  ↳ **`ConnectorShape`**
+
+## Table of contents
+
+### Constructors
+
+- [constructor](GC.Spread.Sheets.Shapes.ConnectorShape.md#constructor)
+
+### Methods
+
+- [adjustments](GC.Spread.Sheets.Shapes.ConnectorShape.md#adjustments)
+- [allowMove](GC.Spread.Sheets.Shapes.ConnectorShape.md#allowmove)
+- [allowResize](GC.Spread.Sheets.Shapes.ConnectorShape.md#allowresize)
+- [allowRotate](GC.Spread.Sheets.Shapes.ConnectorShape.md#allowrotate)
+- [alt](GC.Spread.Sheets.Shapes.ConnectorShape.md#alt)
+- [canPrint](GC.Spread.Sheets.Shapes.ConnectorShape.md#canprint)
+- [dynamicMove](GC.Spread.Sheets.Shapes.ConnectorShape.md#dynamicmove)
+- [dynamicSize](GC.Spread.Sheets.Shapes.ConnectorShape.md#dynamicsize)
+- [endColumn](GC.Spread.Sheets.Shapes.ConnectorShape.md#endcolumn)
+- [endColumnOffset](GC.Spread.Sheets.Shapes.ConnectorShape.md#endcolumnoffset)
+- [endConnector](GC.Spread.Sheets.Shapes.ConnectorShape.md#endconnector)
+- [endRow](GC.Spread.Sheets.Shapes.ConnectorShape.md#endrow)
+- [endRowOffset](GC.Spread.Sheets.Shapes.ConnectorShape.md#endrowoffset)
+- [getFormula](GC.Spread.Sheets.Shapes.ConnectorShape.md#getformula)
+- [height](GC.Spread.Sheets.Shapes.ConnectorShape.md#height)
+- [hyperlink](GC.Spread.Sheets.Shapes.ConnectorShape.md#hyperlink)
+- [isLocked](GC.Spread.Sheets.Shapes.ConnectorShape.md#islocked)
+- [isSelected](GC.Spread.Sheets.Shapes.ConnectorShape.md#isselected)
+- [isVisible](GC.Spread.Sheets.Shapes.ConnectorShape.md#isvisible)
+- [name](GC.Spread.Sheets.Shapes.ConnectorShape.md#name)
+- [setFormula](GC.Spread.Sheets.Shapes.ConnectorShape.md#setformula)
+- [showHandle](GC.Spread.Sheets.Shapes.ConnectorShape.md#showhandle)
+- [startColumn](GC.Spread.Sheets.Shapes.ConnectorShape.md#startcolumn)
+- [startColumnOffset](GC.Spread.Sheets.Shapes.ConnectorShape.md#startcolumnoffset)
+- [startConnector](GC.Spread.Sheets.Shapes.ConnectorShape.md#startconnector)
+- [startRow](GC.Spread.Sheets.Shapes.ConnectorShape.md#startrow)
+- [startRowOffset](GC.Spread.Sheets.Shapes.ConnectorShape.md#startrowoffset)
+- [style](GC.Spread.Sheets.Shapes.ConnectorShape.md#style)
+- [toImageSrc](GC.Spread.Sheets.Shapes.ConnectorShape.md#toimagesrc)
+- [toImageSrcAsync](GC.Spread.Sheets.Shapes.ConnectorShape.md#toimagesrcasync)
+- [type](GC.Spread.Sheets.Shapes.ConnectorShape.md#type)
+- [width](GC.Spread.Sheets.Shapes.ConnectorShape.md#width)
+- [x](GC.Spread.Sheets.Shapes.ConnectorShape.md#x)
+- [y](GC.Spread.Sheets.Shapes.ConnectorShape.md#y)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new ConnectorShape**(`worksheet`, `name`, `connectorType?`, `beginX?`, `beginY?`, `endX?`, `endY?`)
+
+连接符形状（ConnectorShape）是一种用于连接两个形状的线条形状。它会自动锚定到被连接形状的边缘，并且当被连接的形状发生移动或大小调整时，会动态调整自身的路径，以维持两者之间的连接状态。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `worksheet` | [`Worksheet`](GC.Spread.Sheets.Worksheet.md) | 形状所在的宿主工作表。 |
+| `name` | `string` | 形状的名称。 |
+| `connectorType?` | [`ConnectorType`](../enums/GC.Spread.Sheets.Shapes.ConnectorType.md) | 连接符形状的类型。 |
+| `beginX?` | `number` | 连接符形状起点的 <i>x</i> 坐标位置。 |
+| `beginY?` | `number` | 连接符形状起点的 <i>y</i> 坐标位置。 |
+| `endX?` | `number` | 连接符形状终点的 <i>x</i> 坐标位置。 |
+| `endY?` | `number` | 连接符形状终点的 <i>y</i> 坐标位置。 |
+
+#### Overrides
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[constructor](GC.Spread.Sheets.Shapes.ShapeBase.md#constructor)
+
+## Methods
+
+### <a id="adjustments" name="adjustments"></a> adjustments
+
+▸ **adjustments**(`arrayValue?`): `any`
+
+获取或设置连接符形状的调整值。
+
+**`example`**
+```
+var myConnector = sheet.shapes.addConnector("myConnector", GC.Spread.Sheets.Shapes.ConnectorType.elbow, 50, 50, 200, 500);
+var adjustments = myConnector.adjustments();
+console.log(adjustments);
+adjustments = [-0.8];
+myConnector.adjustments(adjustments);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `arrayValue?` | `number`[] | 以数组形式表示的调整值。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，则返回形状的当前调整值。
+
+___
+
+### <a id="allowmove" name="allowmove"></a> allowMove
+
+▸ **allowMove**(`value?`): `any`
+
+获取或设置是否禁用移动形状。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.allowMove();
+heart.allowMove(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 是否禁用移动形状的设置。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回是否禁用移动形状的设置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[allowMove](GC.Spread.Sheets.Shapes.ShapeBase.md#allowmove)
+
+___
+
+### <a id="allowresize" name="allowresize"></a> allowResize
+
+▸ **allowResize**(`value?`): `any`
+
+获取或设置形状的调整大小模式。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.allowResize();
+heart.allowResize(GC.Spread.Sheets.Shapes.ResizeMode.aspect);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` \| [`ResizeMode`](../enums/GC.Spread.Sheets.Shapes.ResizeMode.md) | 是否禁用调整形状大小的设置。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回是否禁用调整形状大小的设置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[allowResize](GC.Spread.Sheets.Shapes.ShapeBase.md#allowresize)
+
+___
+
+### <a id="allowrotate" name="allowrotate"></a> allowRotate
+
+▸ **allowRotate**(`value?`): `any`
+
+获取或设置是否禁用旋转形状。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.allowRotate();
+heart.allowRotate(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 是否禁用旋转形状的设置。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回是否禁用旋转形状的设置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[allowRotate](GC.Spread.Sheets.Shapes.ShapeBase.md#allowrotate)
+
+___
+
+### <a id="alt" name="alt"></a> alt
+
+▸ **alt**(`value?`): `any`
+
+获取或设置形状的替代文本（用于屏幕阅读器）。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+heart.alt("一个心形");
+```
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value?` | `string` |
+
+#### Returns
+
+`any`
+
+形状的替代文本。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[alt](GC.Spread.Sheets.Shapes.ShapeBase.md#alt)
+
+___
+
+### <a id="canprint" name="canprint"></a> canPrint
+
+▸ **canPrint**(`value?`): `any`
+
+获取或设置此形状是否可打印。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.canPrint(); // 获取形状是否可打印，默认值为 true.
+workbook.print(); // 心形被打印。
+heart.canPrint(false);
+workbook.print(); // 心形不被打印。
+```
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value?` | `boolean` |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回此形状是否可打印。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[canPrint](GC.Spread.Sheets.Shapes.ShapeBase.md#canprint)
+
+___
+
+### <a id="dynamicmove" name="dynamicmove"></a> dynamicMove
+
+▸ **dynamicMove**(`value?`): `any`
+
+获取或设置形状在隐藏或显示、调整大小或移动行或列时是否移动。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.dynamicMove();
+heart.dynamicMove(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 指示形状在隐藏或显示、调整大小或移动行或列时是否移动的值。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回此形状是否动态移动。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[dynamicMove](GC.Spread.Sheets.Shapes.ShapeBase.md#dynamicmove)
+
+___
+
+### <a id="dynamicsize" name="dynamicsize"></a> dynamicSize
+
+▸ **dynamicSize**(`value?`): `any`
+
+获取或设置形状在隐藏或显示、调整大小或移动行或列时是否改变大小。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.dynamicSize();
+heart.dynamicSize(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 指示形状在隐藏或显示、调整大小或移动行或列时是否改变大小的值。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回此形状是否动态改变大小。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[dynamicSize](GC.Spread.Sheets.Shapes.ShapeBase.md#dynamicsize)
+
+___
+
+### <a id="endcolumn" name="endcolumn"></a> endColumn
+
+▸ **endColumn**(`value?`): `any`
+
+获取或设置形状位置的结束列索引。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.endColumn();
+heart.endColumn(n + 1);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 形状位置的结束列索引。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状位置的结束列索引。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[endColumn](GC.Spread.Sheets.Shapes.ShapeBase.md#endcolumn)
+
+___
+
+### <a id="endcolumnoffset" name="endcolumnoffset"></a> endColumnOffset
+
+▸ **endColumnOffset**(`value?`): `any`
+
+获取或设置相对于形状结束列的偏移量。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.endColumnOffset();
+heart.endColumnOffset(0);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 相对于形状结束列的偏移量。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回相对于形状结束列的偏移量。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[endColumnOffset](GC.Spread.Sheets.Shapes.ShapeBase.md#endcolumnoffset)
+
+___
+
+### <a id="endconnector" name="endconnector"></a> endConnector
+
+▸ **endConnector**(`connector?`): [`IShapeConnector`](../interfaces/GC.Spread.Sheets.Shapes.IShapeConnector.md)
+
+获取或设置连接符形状的终点连接符信息。
+
+**`example`**
+```
+var shape1 = sheet.shapes.add("myShape1", GC.Spread.Sheets.Shapes.AutoShapeType.rectangle, 62 * 9, 0, 200, 200);
+var shape2 = sheet.shapes.addConnector("myShape", GC.Spread.Sheets.Shapes.ConnectorType.straight, 220, 120, 300, 120);
+shape2.endConnector({name: shape1.name(), index: 2});
+console.log(shape2.endConnector());
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `connector?` | [`IShapeConnector`](../interfaces/GC.Spread.Sheets.Shapes.IShapeConnector.md) | 连接符形状的终点连接符信息。 |
+
+#### Returns
+
+[`IShapeConnector`](../interfaces/GC.Spread.Sheets.Shapes.IShapeConnector.md)
+
+connectorInfo - 如果未设置值，则返回连接符形状的终点连接符信息。当连接符形状没有终点连接符时返回 null。
+connectorInfo.name {string} 终点连接符的名称。
+connectorInfo.index {number} 终点连接符的连接点索引。
+connectorInfo.shape {GC.Spread.Sheets.Shapes.Shape} 终点连接符。
+
+___
+
+### <a id="endrow" name="endrow"></a> endRow
+
+▸ **endRow**(`value?`): `any`
+
+获取或设置形状位置的结束行索引。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.endRow();
+heart.endRow(n + 2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 形状位置的结束行索引。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状位置的结束行索引。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[endRow](GC.Spread.Sheets.Shapes.ShapeBase.md#endrow)
+
+___
+
+### <a id="endrowoffset" name="endrowoffset"></a> endRowOffset
+
+▸ **endRowOffset**(`value?`): `any`
+
+获取或设置相对于形状结束行的偏移量。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.endRowOffset();
+heart.endRowOffset(0);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 相对于形状结束行的偏移量。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回相对于形状结束行的偏移量。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[endRowOffset](GC.Spread.Sheets.Shapes.ShapeBase.md#endrowoffset)
+
+___
+
+### <a id="getformula" name="getformula"></a> getFormula
+
+▸ **getFormula**(`path`): `string`
+
+按路径从形状中获取公式字符串。
+
+**`example`**
+```
+sheet.name("Sheet1");
+sheet.setValue(0, 1, "red");
+var myConnector = sheet.shapes.addConnector("myConnector", GC.Spread.Sheets.Shapes.ConnectorType.elbow, 50, 50, 200, 500);
+myConnector.setFormula("style.line.color", "=Sheet1!B1");
+myConnector.getFormula("style.line.color");//返回 "=Sheet1!B1"
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `path` | `string` | 可接受公式字符串的路径，可选值包括 "x"、"y"、"width"、"height"、 "style.line.color"、"style.line.lineStyle"、"style.line.width"、"style.line.capType"、"style.line.joinType"、"style.line.compoundType"、"style.line.transparency"。 |
+
+#### Returns
+
+`string`
+
+按路径从形状中返回的公式字符串。
+
+#### Overrides
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[getFormula](GC.Spread.Sheets.Shapes.ShapeBase.md#getformula)
+
+___
+
+### <a id="height" name="height"></a> height
+
+▸ **height**(`value?`): `any`
+
+获取或设置形状的高度。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.height();
+heart.height(n + 50);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` \| `number` | 形状的高度，可以是数值或公式（以=开头）。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状的高度。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[height](GC.Spread.Sheets.Shapes.ShapeBase.md#height)
+
+___
+
+### <a id="hyperlink" name="hyperlink"></a> hyperlink
+
+▸ **hyperlink**(`value?`): `void` \| [`IHyperlink`](../interfaces/GC.Spread.Sheets.IHyperlink.md)
+
+获取或设置形状的超链接。
+
+**`example`**
+```
+var shape = sheet.shapes.add("myShape", GC.Spread.Sheets.Shapes.AutoShapeType.rectangle, 62 * 9, 0, 200, 200);
+shape.hyperlink({url: "http://www.spreadjs.com", target: 0, tooltip: 'goes to SpreadJS'});
+```
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value?` | [`IHyperlink`](../interfaces/GC.Spread.Sheets.IHyperlink.md) |
+
+#### Returns
+
+`void` \| [`IHyperlink`](../interfaces/GC.Spread.Sheets.IHyperlink.md)
+
+如果未设置值，返回形状当前的超链接设置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[hyperlink](GC.Spread.Sheets.Shapes.ShapeBase.md#hyperlink)
+
+___
+
+### <a id="islocked" name="islocked"></a> isLocked
+
+▸ **isLocked**(`value?`): `any`
+
+获取或设置此形状是否被锁定。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.isLocked();
+heart.isLocked(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 指示此形状是否被锁定的值。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回此形状是否被锁定。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[isLocked](GC.Spread.Sheets.Shapes.ShapeBase.md#islocked)
+
+___
+
+### <a id="isselected" name="isselected"></a> isSelected
+
+▸ **isSelected**(`value?`): `any`
+
+获取或设置此形状是否被选中。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.isSelected();
+heart.isSelected(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 指示此形状是否被选中的值。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回此形状是否被选中。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[isSelected](GC.Spread.Sheets.Shapes.ShapeBase.md#isselected)
+
+___
+
+### <a id="isvisible" name="isvisible"></a> isVisible
+
+▸ **isVisible**(`value?`): `any`
+
+获取或设置此形状是否可见。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.isVisible();
+heart.isVisible(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 指示此形状是否可见的值。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回此形状是否可见。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[isVisible](GC.Spread.Sheets.Shapes.ShapeBase.md#isvisible)
+
+___
+
+### <a id="name" name="name"></a> name
+
+▸ **name**(`value?`): `any`
+
+获取或设置形状的名称。
+
+**`example`**
+```
+var shape1 = sheet.shapes.add("myShape1", GC.Spread.Sheets.Shapes.AutoShapeType.rectangle, 62 * 9, 0, 200, 200);
+var shape2 = sheet.shapes.add("myShape2", GC.Spread.Sheets.Shapes.AutoShapeType.rectangle, 20, 20, 200, 200);
+var shape = sheet.shapes.group([shape1, shape2]);
+shape.name("myGroupShape");
+var shapeName = shape.name();
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` | 形状的名称。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状的名称。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[name](GC.Spread.Sheets.Shapes.ShapeBase.md#name)
+
+___
+
+### <a id="setformula" name="setformula"></a> setFormula
+
+▸ **setFormula**(`path`, `formula`): `void`
+
+按路径向形状设置公式字符串。
+
+**`example`**
+```
+sheet.name("Sheet1");
+sheet.setValue(0, 1, "red");
+var myConnector = sheet.shapes.addConnector("myConnector", GC.Spread.Sheets.Shapes.ConnectorType.elbow, 50, 50, 200, 500);
+myConnector.setFormula("style.line.color", "=Sheet1!B1");
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `path` | `string` | 可接受公式字符串的路径，可选值包括 "x"、"y"、"width"、"height"、 "style.line.color"、"style.line.lineStyle"、"style.line.width"、"style.line.capType"、"style.line.joinType"、"style.line.compoundType"、"style.line.transparency"。 |
+| `formula` | `string` | 公式字符串。 |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[setFormula](GC.Spread.Sheets.Shapes.ShapeBase.md#setformula)
+
+___
+
+### <a id="showhandle" name="showhandle"></a> showHandle
+
+▸ **showHandle**(`value?`): `any`
+
+获取或设置是否显示形状的控制柄。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var state = heart.showHandle();
+heart.showHandle(!state);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 是否显示形状控制柄的设置。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回是否显示形状控制柄的设置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[showHandle](GC.Spread.Sheets.Shapes.ShapeBase.md#showhandle)
+
+___
+
+### <a id="startcolumn" name="startcolumn"></a> startColumn
+
+▸ **startColumn**(`value?`): `any`
+
+获取或设置形状位置的起始列索引。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.startColumn();
+heart.startColumn(n + 2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 形状位置的起始列索引。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状位置的起始列索引。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[startColumn](GC.Spread.Sheets.Shapes.ShapeBase.md#startcolumn)
+
+___
+
+### <a id="startcolumnoffset" name="startcolumnoffset"></a> startColumnOffset
+
+▸ **startColumnOffset**(`value?`): `any`
+
+获取或设置相对于形状起始列的偏移量。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.startColumnOffset();
+heart.startColumnOffset(0);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 相对于形状起始列的偏移量。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回相对于形状起始列的偏移量。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[startColumnOffset](GC.Spread.Sheets.Shapes.ShapeBase.md#startcolumnoffset)
+
+___
+
+### <a id="startconnector" name="startconnector"></a> startConnector
+
+▸ **startConnector**(`connector?`): [`IShapeConnector`](../interfaces/GC.Spread.Sheets.Shapes.IShapeConnector.md)
+
+获取或设置连接符形状的起点连接符信息。
+
+**`example`**
+```
+var shape1 = sheet.shapes.add("myShape1", GC.Spread.Sheets.Shapes.AutoShapeType.rectangle, 62 * 9, 0, 200, 200);
+var shape2 = sheet.shapes.addConnector("myShape", GC.Spread.Sheets.Shapes.ConnectorType.straight, 220, 120, 300, 120);
+shape2.startConnector({name: shape1.name(), index: 2});
+console.log(shape2.startConnector());
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `connector?` | [`IShapeConnector`](../interfaces/GC.Spread.Sheets.Shapes.IShapeConnector.md) | 连接符形状的起点连接符信息。 |
+
+#### Returns
+
+[`IShapeConnector`](../interfaces/GC.Spread.Sheets.Shapes.IShapeConnector.md)
+
+connectorInfo - 如果未设置值，则返回连接符形状的起点连接符信息。当连接符形状没有起点连接符时返回 null。
+connectorInfo.name {string} 起点连接符的名称。
+connectorInfo.index {number} 起点连接符的连接点索引。
+connectorInfo.shape {GC.Spread.Sheets.Shapes.Shape} 起点连接符。
+
+___
+
+### <a id="startrow" name="startrow"></a> startRow
+
+▸ **startRow**(`value?`): `any`
+
+获取或设置形状位置的起始行索引。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.startRow();
+heart.startRow(n + 2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 形状位置的起始行索引。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状位置的起始行索引。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[startRow](GC.Spread.Sheets.Shapes.ShapeBase.md#startrow)
+
+___
+
+### <a id="startrowoffset" name="startrowoffset"></a> startRowOffset
+
+▸ **startRowOffset**(`value?`): `any`
+
+获取或设置相对于形状起始行的偏移量。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.startRowOffset();
+heart.startRowOffset(0);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | 相对于形状起始行的偏移量。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回相对于形状起始行的偏移量。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[startRowOffset](GC.Spread.Sheets.Shapes.ShapeBase.md#startrowoffset)
+
+___
+
+### <a id="style" name="style"></a> style
+
+▸ **style**(`value?`): `void` \| [`ShapeStyle`](GC.Spread.Sheets.Shapes.ShapeStyle.md)
+
+获取或设置连接符形状的样式。
+
+**`example`**
+```
+// 此示例为连接符形状设置样式。
+var shape = sheet.shapes.addConnector("Shape1", GC.Spread.Sheets.Shapes.ConnectorType.straight, 100, 60, 200, 160);
+var oldStyle = shape.style();
+oldStyle.line.color = "red";
+oldStyle.line.lineStyle = GC.Spread.Sheets.Shapes.PresetLineDashStyle.dashDot;
+oldStyle.line.width = 5;
+oldStyle.line.capType = GC.Spread.Sheets.Shapes.LineCapStyle.square;
+oldStyle.line.joinType = GC.Spread.Sheets.Shapes.LineJoinStyle.miter;
+oldStyle.line.compoundType = GC.Spread.Sheets.Shapes.CompoundType.double;
+oldStyle.line.transparency = 0.5;
+oldStyle.line.beginArrowheadStyle = GC.Spread.Sheets.Shapes.ArrowheadStyle.triangle;
+oldStyle.line.beginArrowheadWidth = GC.Spread.Sheets.Shapes.ArrowheadWidth.narrow;
+oldStyle.line.beginArrowheadLength = GC.Spread.Sheets.Shapes.ArrowheadLength.short;
+oldStyle.line.endArrowheadStyle = GC.Spread.Sheets.Shapes.ArrowheadStyle.diamond;
+oldStyle.line.endArrowheadWidth = GC.Spread.Sheets.Shapes.ArrowheadWidth.wide;
+oldStyle.line.endArrowheadLength = GC.Spread.Sheets.Shapes.ArrowheadLength.long;
+shape.style(oldStyle);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | [`ShapeStyle`](GC.Spread.Sheets.Shapes.ShapeStyle.md) | 连接符形状的样式。 |
+
+#### Returns
+
+`void` \| [`ShapeStyle`](GC.Spread.Sheets.Shapes.ShapeStyle.md)
+
+如果未设置值，则返回连接符形状的当前样式。
+
+___
+
+### <a id="toimagesrc" name="toimagesrc"></a> toImageSrc
+
+▸ **toImageSrc**(): `string`
+
+获取形状的Base64字符串类型的图片源。
+
+**`example`**
+```
+let shapeImageSrc = sheet.shapes.all()[0].toImageSrc();
+```
+
+#### Returns
+
+`string`
+
+返回形状的Base64字符串类型的图片源。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[toImageSrc](GC.Spread.Sheets.Shapes.ShapeBase.md#toimagesrc)
+
+___
+
+### <a id="toimagesrcasync" name="toimagesrcasync"></a> toImageSrcAsync
+
+▸ **toImageSrcAsync**(): `Promise`<`string`\>
+
+获取形状的Base64字符串类型的图片源。
+
+**`example`**
+```
+let shapeImageSrc = await sheet.shapes.all()[0].toImageSrcAsync();
+```
+
+#### Returns
+
+`Promise`<`string`\>
+
+返回形状的Base64字符串类型的图片源。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[toImageSrcAsync](GC.Spread.Sheets.Shapes.ShapeBase.md#toimagesrcasync)
+
+___
+
+### <a id="type" name="type"></a> type
+
+▸ **type**(): [`ConnectorType`](../enums/GC.Spread.Sheets.Shapes.ConnectorType.md)
+
+获取连接符形状的连接符类型。
+
+**`example`**
+```
+var shape = sheet.shapes.addConnector("myShape", GC.Spread.Sheets.Shapes.ConnectorType.straight, 220, 120, 300, 120);
+var shapeName = shape.type();
+```
+
+#### Returns
+
+[`ConnectorType`](../enums/GC.Spread.Sheets.Shapes.ConnectorType.md)
+
+返回形状的连接符类型。
+
+___
+
+### <a id="width" name="width"></a> width
+
+▸ **width**(`value?`): `any`
+
+获取或设置形状的宽度。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.width();
+heart.width(n + 50);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` \| `number` | 形状的宽度，可以是数值或公式（以=开头）。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状的宽度。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[width](GC.Spread.Sheets.Shapes.ShapeBase.md#width)
+
+___
+
+### <a id="x" name="x"></a> x
+
+▸ **x**(`value?`): `any`
+
+获取或设置形状的水平位置。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.x();
+heart.x(n + 50);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` \| `number` | 形状的水平位置，可以是数值或公式（以=开头）。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状的水平位置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[x](GC.Spread.Sheets.Shapes.ShapeBase.md#x)
+
+___
+
+### <a id="y" name="y"></a> y
+
+▸ **y**(`value?`): `any`
+
+获取或设置形状的垂直位置。
+
+**`example`**
+```
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var n = heart.y();
+heart.y(n + 50);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` \| `number` | 形状的垂直位置，可以是数值或公式（以=开头）。 |
+
+#### Returns
+
+`any`
+
+如果未设置值，返回形状的垂直位置。
+
+#### Inherited from
+
+[ShapeBase](GC.Spread.Sheets.Shapes.ShapeBase.md).[y](GC.Spread.Sheets.Shapes.ShapeBase.md#y)

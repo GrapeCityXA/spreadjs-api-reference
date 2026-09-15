@@ -1,0 +1,1619 @@
+# Class: GeneralSlicerData
+
+[Spread](../modules/GC.Spread.md).[Slicers](../modules/GC.Spread.Slicers.md).GeneralSlicerData
+
+## Hierarchy
+
+- **`GeneralSlicerData`**
+
+  ↳ [`TableSlicerData`](GC.Spread.Sheets.Slicers.TableSlicerData.md)
+
+## Table of contents
+
+### Constructors
+
+- [constructor](GC.Spread.Slicers.GeneralSlicerData.md#constructor)
+
+### Properties
+
+- [columnNames](GC.Spread.Slicers.GeneralSlicerData.md#columnnames)
+- [data](GC.Spread.Slicers.GeneralSlicerData.md#data)
+
+### Methods
+
+- [aggregateData](GC.Spread.Slicers.GeneralSlicerData.md#aggregatedata)
+- [attachListener](GC.Spread.Slicers.GeneralSlicerData.md#attachlistener)
+- [clearPreview](GC.Spread.Slicers.GeneralSlicerData.md#clearpreview)
+- [detachListener](GC.Spread.Slicers.GeneralSlicerData.md#detachlistener)
+- [doFilter](GC.Spread.Slicers.GeneralSlicerData.md#dofilter)
+- [doUnfilter](GC.Spread.Slicers.GeneralSlicerData.md#dounfilter)
+- [getColumnIndex](GC.Spread.Slicers.GeneralSlicerData.md#getcolumnindex)
+- [getData](GC.Spread.Slicers.GeneralSlicerData.md#getdata)
+- [getExclusiveData](GC.Spread.Slicers.GeneralSlicerData.md#getexclusivedata)
+- [getExclusiveRowIndex](GC.Spread.Slicers.GeneralSlicerData.md#getexclusiverowindex)
+- [getFilteredIndexes](GC.Spread.Slicers.GeneralSlicerData.md#getfilteredindexes)
+- [getFilteredOutIndexes](GC.Spread.Slicers.GeneralSlicerData.md#getfilteredoutindexes)
+- [getFilteredOutRanges](GC.Spread.Slicers.GeneralSlicerData.md#getfilteredoutranges)
+- [getFilteredOutRowIndexes](GC.Spread.Slicers.GeneralSlicerData.md#getfilteredoutrowindexes)
+- [getFilteredRanges](GC.Spread.Slicers.GeneralSlicerData.md#getfilteredranges)
+- [getFilteredRowIndexes](GC.Spread.Slicers.GeneralSlicerData.md#getfilteredrowindexes)
+- [getRowIndexes](GC.Spread.Slicers.GeneralSlicerData.md#getrowindexes)
+- [inPreview](GC.Spread.Slicers.GeneralSlicerData.md#inpreview)
+- [onColumnNameChanged](GC.Spread.Slicers.GeneralSlicerData.md#oncolumnnamechanged)
+- [onColumnsRemoved](GC.Spread.Slicers.GeneralSlicerData.md#oncolumnsremoved)
+- [onDataChanged](GC.Spread.Slicers.GeneralSlicerData.md#ondatachanged)
+- [onFiltered](GC.Spread.Slicers.GeneralSlicerData.md#onfiltered)
+- [onRowsAdded](GC.Spread.Slicers.GeneralSlicerData.md#onrowsadded)
+- [onRowsRemoved](GC.Spread.Slicers.GeneralSlicerData.md#onrowsremoved)
+- [resumeFilteredEvents](GC.Spread.Slicers.GeneralSlicerData.md#resumefilteredevents)
+- [suspendFilteredEvents](GC.Spread.Slicers.GeneralSlicerData.md#suspendfilteredevents)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new GeneralSlicerData**(`data`, `columnNames`)
+
+通用切片器数据
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `any`[][] | 切片器数据；它是一个矩阵数组 |
+| `columnNames` | `string`[] | 切片器数据的列名 |
+
+## Properties
+
+### <a id="columnnames" name="columnnames"></a> columnNames
+
+• **columnNames**: `string`[]
+
+通用切片器数据的列名称
+
+___
+
+### <a id="data" name="data"></a> data
+
+• **data**: `any`[][]
+
+通用切片器的数据源
+
+## Methods
+
+### <a id="aggregatedata" name="aggregatedata"></a> aggregateData
+
+▸ **aggregateData**(`columnName`, `aggregateType`, `range?`): `number`
+
+通过指定的列名聚合数据
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.aggregateData('Salary', GC.Spread.Slicers.SlicerAggregateType.average));
+console.log(slicerData.aggregateData('Salary', GC.Spread.Slicers.SlicerAggregateType.count, {min: 8000, max: 20000}));
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+| `aggregateType` | [`SlicerAggregateType`](../enums/GC.Spread.Slicers.SlicerAggregateType.md) | 聚合类型 |
+| `range?` | [`ISlicerRangeConditional`](../interfaces/GC.Spread.Slicers.ISlicerRangeConditional.md) | 特定区域 range.min: 数值类型，最小值 range.max: 数值类型，最大值 |
+
+#### Returns
+
+`number`
+
+聚合数据
+
+___
+
+### <a id="attachlistener" name="attachlistener"></a> attachListener
+
+▸ **attachListener**(`listener`): `void`
+
+附加切片器
+
+**`example`**
+```
+//Define data source.
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+//Define custom slicer.
+function MySlicer(container) {
+    this.container = container;
+    this.slicerData = null;
+    this.columnName = null;
+}
+MySlicer.prototype.setData = function (slicerData, columnName) {
+    this.slicerData = slicerData;
+    this.columnName = columnName;
+    // attach listener here
+    this.slicerData.attachListener(this);
+    this.onDataLoaded();
+}
+MySlicer.prototype.onDataLoaded = function () {
+    //create slicer dom tree.
+    var columnName = this.columnName,
+        exclusiveData = this.slicerData.getExclusiveData(columnName);
+    $(this.container).append($('<span>' + this.columnName + ':</span>' + '<br />'));
+    var domString = "";
+    for (var i = 0; i < exclusiveData.length; i++) {
+        domString += '<input type="checkbox" name="' + columnName + '" value="' + exclusiveData[i] + '">';
+        domString += '<span>' + exclusiveData[i] + '</span>';
+        domString += '<br />';
+    }
+    $(this.container).append($(domString));
+    //attach events to dom.
+    var self = this;
+    $("[name='" + self.columnName + "']").change(function () {
+        var slicer = self,
+            exclusiveData = slicer.slicerData.getExclusiveData(slicer.columnName),
+            parent = $(this).parent(),
+            items = parent.children(),
+            indexes = [];
+        for (var i = 0, length = items.length; i < length; i++) {
+            if (items[i].checked) {
+                var value = items[i].value;
+                if (!isNaN(parseInt(value))) {
+                    value = parseInt(value);
+                }
+                indexes.push(exclusiveData.indexOf(value))
+            }
+        }
+        if (indexes.length === 0) {
+            slicer.slicerData.doUnfilter(slicer.columnName);
+        } else {
+            slicer.slicerData.doFilter(slicer.columnName, { exclusiveRowIndexes: indexes });
+        }
+    });
+};
+MySlicer.prototype.onFiltered = function () {
+    //Sync the status if the data has been filtered by the Spread.Sheets table.
+    var slicerData = this.slicerData;
+    var exclusiveIndexes = slicerData.getFilteredIndexes(this.columnName);
+    $.each($("#slicerContainer").children("input"), function (i, input) {
+    });
+}
+MySlicer.prototype.onColumnsRemoved = function (columnName) {
+    if (columnName === this.columnName) {
+         this.slicerData.detachListener(this);
+         this.slicerData = null;
+         $("#slicerContainer").remove();
+    }
+}
+
+//create a custom slicer and add this slicer to the "slicerContainer" div.
+var slicer = new MySlicer($("#slicerContainer")[0]);
+slicer.setData(slicerData, 'Name');
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `listener` | [`ISlicerListener`](../interfaces/GC.Spread.Slicers.ISlicerListener.md) | 切片器 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="clearpreview" name="clearpreview"></a> clearPreview
+
+▸ **clearPreview**(): `void`
+
+清除预览过滤状态
+您可以使用slicerData.inPreview() API来检查切片器是否在预览中进行过滤
+如果您将doFilter()的isPreview标志设置为true（例如slicerData.doFilter('Name', {exclusiveRowIndexes: [1]}, true);）
+您可以使用clearPreview() API来清除预览状态
+这将移除预览过滤状态
+
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 8000, text: '5 500' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]});
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0]
+console.log(slicerData.inPreview()); // false
+slicerData.clearPreview();
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0]
+slicerData.doUnfilter('Name');
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]}, true);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0]
+console.log(slicerData.inPreview()); // true
+slicerData.clearPreview();
+console.log(slicerData.inPreview()); // false
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+```
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="detachlistener" name="detachlistener"></a> detachListener
+
+▸ **detachListener**(`listener`): `void`
+
+移除切片器
+
+**`example`**
+```
+//Define data source.
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+//Define custom slicer.
+function MySlicer(container) {
+    this.container = container;
+    this.slicerData = null;
+    this.columnName = null;
+}
+MySlicer.prototype.setData = function (slicerData, columnName) {
+    this.slicerData = slicerData;
+    this.columnName = columnName;
+    // attach listener here
+    this.slicerData.attachListener(this);
+    this.onDataLoaded();
+}
+MySlicer.prototype.onDataLoaded = function () {
+    //create slicer dom tree.
+    var columnName = this.columnName,
+        exclusiveData = this.slicerData.getExclusiveData(columnName);
+    $(this.container).append($('<span>' + this.columnName + ':</span>' + '<br />'));
+    var domString = "";
+    for (var i = 0; i < exclusiveData.length; i++) {
+        domString += '<input type="checkbox" name="' + columnName + '" value="' + exclusiveData[i] + '">';
+        domString += '<span>' + exclusiveData[i] + '</span>';
+        domString += '<br />';
+    }
+    $(this.container).append($(domString));
+    //attach events to dom.
+    var self = this;
+    $("[name='" + self.columnName + "']").change(function () {
+        var slicer = self,
+            exclusiveData = slicer.slicerData.getExclusiveData(slicer.columnName),
+            parent = $(this).parent(),
+            items = parent.children(),
+            indexes = [];
+        for (var i = 0, length = items.length; i < length; i++) {
+            if (items[i].checked) {
+                var value = items[i].value;
+                if (!isNaN(parseInt(value))) {
+                    value = parseInt(value);
+                }
+                indexes.push(exclusiveData.indexOf(value))
+            }
+        }
+        if (indexes.length === 0) {
+            slicer.slicerData.doUnfilter(slicer.columnName);
+        } else {
+            slicer.slicerData.doFilter(slicer.columnName, { exclusiveRowIndexes: indexes });
+        }
+    });
+};
+MySlicer.prototype.onFiltered = function () {
+    //Sync the status if the data has been filtered by the Spread.Sheets table.
+    var slicerData = this.slicerData;
+    var exclusiveIndexes = slicerData.getFilteredIndexes(this.columnName);
+    $.each($("#slicerContainer").children("input"), function (i, input) {
+    });
+}
+MySlicer.prototype.onColumnRemoved = function (columnName) {
+    if (columnName === this.columnName) {
+         this.slicerData.detachListener(this);
+         this.slicerData = null;
+         $("#slicerContainer").remove();
+    }
+}
+
+//create a custom slicer and add this slicer to the "slicerContainer" div.
+var slicer = new MySlicer($("#slicerContainer")[0]);
+slicer.setData(slicerData, 'Name');
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `listener` | [`ISlicerListener`](../interfaces/GC.Spread.Slicers.ISlicerListener.md) | 切片器 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="dofilter" name="dofilter"></a> doFilter
+
+▸ **doFilter**(`columnName`, `conditional`, `isPreview?`): `void`
+
+筛选与指定列名和排他数据索引对应的数据
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]});
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0, 3, 4]
+slicerData.doUnfilter('Name');
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+| `conditional` | [`ISlicerConditional`](../interfaces/GC.Spread.Slicers.ISlicerConditional.md) | 条件筛选 conditional.exclusiveRowIndexes: 数字数组类型，可见的排他行索引 conditional.ranges: {min:number, max:number} 数组类型，可见区域 |
+| `isPreview?` | `boolean` | 是否设置预览 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="dounfilter" name="dounfilter"></a> doUnfilter
+
+▸ **doUnfilter**(`columnName`): `void`
+
+取消筛选与指定列名称相对应的数据
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]});
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0, 3, 4]
+slicerData.doUnfilter('Name');
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="getcolumnindex" name="getcolumnindex"></a> getColumnIndex
+
+▸ **getColumnIndex**(`columnName`): `number`
+
+通过指定的列名获取列索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getColumnIndex('Name')); // 0
+console.log(slicerData.getColumnIndex('Unknown')); // -1
+console.log(slicerData.getColumnIndex('Salary')); // 3
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+
+#### Returns
+
+`number`
+
+列索引
+
+___
+
+### <a id="getdata" name="getdata"></a> getData
+
+▸ **getData**(`columnName`, `range?`): `string`[]
+
+通过指定的列名获取数据
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+
+console.log(slicerData.getData('Name')); // ['Bob', 'Betty', 'Alice', 'Chris', 'James']
+console.log(slicerData.getData('Salary')); // ['10 000', '8 000', '5 500', '6 200', '16 150']
+console.log(slicerData.getData('Salary', {min: 5000, max: 10000})); // ['5 500', '6 200', '8 000', '10 000']
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+| `range?` | [`ISlicerRangeConditional`](../interfaces/GC.Spread.Slicers.ISlicerRangeConditional.md) | 特定区域 range.min: 数值类型，最小值 range.max: 数值类型，最大值 |
+
+#### Returns
+
+`string`[]
+
+与指定列名相对应的数据
+
+___
+
+### <a id="getexclusivedata" name="getexclusivedata"></a> getExclusiveData
+
+▸ **getExclusiveData**(`columnName`): `any`[]
+
+通过指定的列名获取排除数据
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 8000, text: '8 000' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getData('Name')); // ['Bob', 'Betty', 'Bob']
+console.log(slicerData.getExclusiveData('Name')); // ['Bob', 'Betty']
+console.log(slicerData.getData('Salary')); // ['10 000', '8 000', '8 000']
+console.log(slicerData.getExclusiveData('Salary')); // ['10 000', '8 000']
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+
+#### Returns
+
+`any`[]
+
+与指定列名相对应的排除数据
+
+___
+
+### <a id="getexclusiverowindex" name="getexclusiverowindex"></a> getExclusiveRowIndex
+
+▸ **getExclusiveRowIndex**(`columnName`, `rowIndex`): `number`
+
+通过指定的列名和数据索引获取排除数据索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 8000, text: '8 000' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getRowIndexes('Name', 0)); // [0, 2]
+console.log(slicerData.getExclusiveRowIndex('Name', 0)); // 0
+console.log(slicerData.getExclusiveRowIndex('Name', 1)); // 1
+console.log(slicerData.getExclusiveRowIndex('Name', 2)); // 0
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+| `rowIndex` | `number` | 数据索引 |
+
+#### Returns
+
+`number`
+
+与指定的列名和数据索引对应的排除数据索引
+
+___
+
+### <a id="getfilteredindexes" name="getfilteredindexes"></a> getFilteredIndexes
+
+▸ **getFilteredIndexes**(`columnName`): `number`[]
+
+通过指定的列名获取筛选后的排除数据索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getFilteredIndexes('Name')); // [0, 1, 2, 3, 4]
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]});
+console.log(slicerData.getFilteredIndexes('Name')); // [1, 2]
+slicerData.doUnfilter('Name');
+console.log(slicerData.getFilteredIndexes('Name')); // [0, 1, 2, 3, 4]
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+
+#### Returns
+
+`number`[]
+
+与指定的列名相对应的筛选后的排除数据索引
+
+___
+
+### <a id="getfilteredoutindexes" name="getfilteredoutindexes"></a> getFilteredOutIndexes
+
+▸ **getFilteredOutIndexes**(`columnName`, `filteredOutDataType`): `number`[]
+
+通过指定的列名获取筛选出的排除数据索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]});
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0, 3, 4]
+slicerData.doUnfilter('Name');
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+| `filteredOutDataType` | [`FilteredOutDataType`](../enums/GC.Spread.Slicers.FilteredOutDataType.md) | 应包括在结果中的筛选出的排除数据索引的类型 |
+
+#### Returns
+
+`number`[]
+
+与指定的列名相对应的筛选出的排除数据索引
+
+___
+
+### <a id="getfilteredoutranges" name="getfilteredoutranges"></a> getFilteredOutRanges
+
+▸ **getFilteredOutRanges**(`columnName`): [`ISlicerRangeConditional`](../interfaces/GC.Spread.Slicers.ISlicerRangeConditional.md)[]
+
+获取其他列筛选出的区域
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+slicerData.doFilter('Salary', {
+    ranges: [
+        { min: 5000, max: 10000 },
+        { min: 5000, max: 200000 },
+        { min: 60000, max: 61000 }
+    ]
+});
+console.log(slicerData.getFilteredOutRanges('Salary')); // [{min: 60000, max: 61000}]
+console.log(slicerData.getFilteredRanges('Salary')); // [{min: 5000, max: 10000}, {min: 5000, max: 200000}]
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+
+#### Returns
+
+[`ISlicerRangeConditional`](../interfaces/GC.Spread.Slicers.ISlicerRangeConditional.md)[]
+
+与指定的列名称相对应的其他列所筛选的区域
+
+___
+
+### <a id="getfilteredoutrowindexes" name="getfilteredoutrowindexes"></a> getFilteredOutRowIndexes
+
+▸ **getFilteredOutRowIndexes**(): `number`[]
+
+获取筛选出的行索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+slicerData.doFilter('Salary', {
+     exclusiveRowIndexes: [0, 1, 2]
+});
+console.log(slicerData.getFilteredOutRowIndexes('Salary')); // [3, 4]
+console.log(slicerData.getFilteredRowIndexes('Salary')); // [0, 1, 2]
+```
+
+#### Returns
+
+`number`[]
+
+筛选出的行索引
+
+___
+
+### <a id="getfilteredranges" name="getfilteredranges"></a> getFilteredRanges
+
+▸ **getFilteredRanges**(`columnName`): [`ISlicerRangeConditional`](../interfaces/GC.Spread.Slicers.ISlicerRangeConditional.md)[]
+
+通过指定的列名获取筛选区域
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+slicerData.doFilter('Salary', {
+    ranges: [
+        { min: 5000, max: 10000 },
+        { min: 5000, max: 200000 },
+        { min: 60000, max: 61000 }
+    ]
+});
+console.log(slicerData.getFilteredOutRanges('Salary')); // [{min: 60000, max: 61000}]
+console.log(slicerData.getFilteredRanges('Salary')); // [{min: 5000, max: 10000}, {min: 5000, max: 200000}]
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+
+#### Returns
+
+[`ISlicerRangeConditional`](../interfaces/GC.Spread.Slicers.ISlicerRangeConditional.md)[]
+
+与指定的列名相对应的筛选区域
+
+___
+
+### <a id="getfilteredrowindexes" name="getfilteredrowindexes"></a> getFilteredRowIndexes
+
+▸ **getFilteredRowIndexes**(): `number`[]
+
+获取筛选出的行索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Alice', text: 'Alice' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 5500, text: '5 500' }
+        ],
+        [
+            { value: 'Chris', text: 'Chris' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2001/9/2"), text: '9/2/2001' },
+            { value: 6200, text: '6 200' }
+        ],
+        [
+            { value: 'James', text: 'James' },
+            { value: 'Phoenix', text: 'Phoenix' },
+            { value: new Date("1995/11/22"), text: '11/22/1995' },
+            { value: 16150, text: '16 150' }
+        ]
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+slicerData.doFilter('Salary', {
+     exclusiveRowIndexes: [0, 1, 2]
+});
+console.log(slicerData.getFilteredOutRowIndexes('Salary')); // [3, 4]
+console.log(slicerData.getFilteredRowIndexes('Salary')); // [0, 1, 2]
+```
+
+#### Returns
+
+`number`[]
+
+筛选出的行索引
+
+___
+
+### <a id="getrowindexes" name="getrowindexes"></a> getRowIndexes
+
+▸ **getRowIndexes**(`columnName`, `exclusiveRowIndex`): `number`[]
+
+通过指定的列名和排除数据索引获取数据索引
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 8000, text: '8 000' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getRowIndexes('Name', 0)); // [0, 2]
+console.log(slicerData.getRowIndexes('Name', 1)); // [1]
+console.log(slicerData.getRowIndexes('Name', 2)); // undefined
+console.log(slicerData.getRowIndexes('Salary', 1)); // [1, 2]
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `columnName` | `string` | 列名 |
+| `exclusiveRowIndex` | `number` | 排除数据的索引 |
+
+#### Returns
+
+`number`[]
+
+与指定的列名和排除数据索引相对应的数据索引
+
+___
+
+### <a id="inpreview" name="inpreview"></a> inPreview
+
+▸ **inPreview**(): `boolean`
+
+获取切片器是否处于预览状态
+如果您将doFilter()的isPreview标志设置为true（例如slicerData.doFilter('Name', {exclusiveRowIndexes: [1]}, true);）
+您可以使用slicerData.inPreview() API来检查切片器是否在预览中进行过滤
+
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'Washington', text: 'Washington' },
+            { value: new Date("2012/2/15"), text: '2/15/2012' },
+            { value: 8000, text: '5 500' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]});
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0]
+console.log(slicerData.inPreview()); // false
+slicerData.clearPreview();
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0]
+slicerData.doUnfilter('Name');
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1, 2]}, true);
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // [0]
+console.log(slicerData.inPreview()); // true
+slicerData.clearPreview();
+console.log(slicerData.inPreview()); // false
+console.log(slicerData.getFilteredOutIndexes('Name', GC.Spread.Slicers.FilteredOutDataType.all)); // []
+```
+
+#### Returns
+
+`boolean`
+
+___
+
+### <a id="oncolumnnamechanged" name="oncolumnnamechanged"></a> onColumnNameChanged
+
+▸ **onColumnNameChanged**(`oldName`, `newName`): `void`
+
+更改通用切片器数据的列名
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+     [
+          [
+               { value: 'Bob', text: 'Bob' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1968/6/8"), text: '6/8/1968' },
+               { value: 10000, text: '10 000' }
+          ],
+          [
+               { value: 'Betty', text: 'Betty' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1972/7/3"), text: '7/3/1972' },
+               { value: 8000, text: '8 000' }
+          ]
+     ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getExclusiveData('Name')); // ['Bob', 'Betty']
+slicerData.onColumnNameChanged('Name', 'NewName');
+console.log(slicerData.getExclusiveData('Name')); // []
+console.log(slicerData.getExclusiveData('NewName')); // ['Bob', 'Betty']
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `oldName` | `string` | 旧列名 |
+| `newName` | `string` | 新列名 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="oncolumnsremoved" name="oncolumnsremoved"></a> onColumnsRemoved
+
+▸ **onColumnsRemoved**(`colIndex`, `colCount`): `void`
+
+删除通用切片器数据的列
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+     [
+          [
+               { value: 'Bob', text: 'Bob' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1968/6/8"), text: '6/8/1968' },
+               { value: 10000, text: '10 000' }
+          ],
+          [
+               { value: 'Betty', text: 'Betty' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1972/7/3"), text: '7/3/1972' },
+               { value: 8000, text: '8 000' }
+          ]
+     ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getData('Name')); // ['Bob', 'Betty']
+slicerData.onColumnsRemoved(0, 1);
+console.log(slicerData.getData('Name')); // []
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `colIndex` | `number` | 起始列索引 |
+| `colCount` | `number` | 删除的列数 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="ondatachanged" name="ondatachanged"></a> onDataChanged
+
+▸ **onDataChanged**(`changedDataItems`): `void`
+
+更改通用切片器数据的数据源中的数据项
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+     [
+          [
+               { value: 'Bob', text: 'Bob' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1968/6/8"), text: '6/8/1968' },
+               { value: 10000, text: '10 000' }
+          ],
+          [
+               { value: 'Betty', text: 'Betty' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1972/7/3"), text: '7/3/1972' },
+               { value: 8000, text: '8 000' }
+          ]
+     ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getData('Name')); // ['Bob', 'Betty']
+slicerData.onDataChanged([{columnName: 'Name', rowIndex: 1, row: 1, data: {value: 'Alice', text: 'Alice'}}]);
+console.log(slicerData.getData('Name')); // ['Bob', 'Alice']
+```
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `changedDataItems` | [`ISlicerDataItem`](../interfaces/GC.Spread.Slicers.ISlicerDataItem.md) |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="onfiltered" name="onfiltered"></a> onFiltered
+
+▸ **onFiltered**(): `void`
+
+发生在对切片器数据筛选之后
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="onrowsadded" name="onrowsadded"></a> onRowsAdded
+
+▸ **onRowsAdded**(`rowIndex`, `rowCount`): `void`
+
+在通用切片器数据的数据源中添加行
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+     [
+          [
+               { value: 'Bob', text: 'Bob' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1968/6/8"), text: '6/8/1968' },
+               { value: 10000, text: '10 000' }
+          ],
+          [
+               { value: 'Betty', text: 'Betty' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1972/7/3"), text: '7/3/1972' },
+               { value: 8000, text: '8 000' }
+          ]
+     ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getData('Name')); // ['Bob', 'Betty']
+slicerData.onRowsAdded(1, 2);
+console.log(slicerData.getData('Name')); // ['Bob', undefined, undefined, 'Betty']
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `rowIndex` | `number` | 起始行的索引 |
+| `rowCount` | `number` | 要添加的行数 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="onrowsremoved" name="onrowsremoved"></a> onRowsRemoved
+
+▸ **onRowsRemoved**(`rowIndex`, `rowCount`): `void`
+
+删除通用切片器数据的数据源中的行
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+     [
+          [
+               { value: 'Bob', text: 'Bob' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1968/6/8"), text: '6/8/1968' },
+               { value: 10000, text: '10 000' }
+          ],
+          [
+               { value: 'Betty', text: 'Betty' },
+               { value: 'NewYork', text: 'NewYork' },
+               { value: new Date("1972/7/3"), text: '7/3/1972' },
+               { value: 8000, text: '8 000' }
+          ]
+     ], ["Name", "City", "Birthday", "Salary"]
+);
+console.log(slicerData.getData('Name')); // ['Bob', 'Betty']
+slicerData.onRowsAdded(1, 2);
+console.log(slicerData.getData('Name')); // ['Bob', undefined, undefined, 'Betty']
+slicerData.onRowsRemoved(2, 1);
+console.log(slicerData.getData('Name')); // ['Bob', undefined, 'Betty']
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `rowIndex` | `number` | 起始行的索引 |
+| `rowCount` | `number` | 删除的行数 |
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="resumefilteredevents" name="resumefilteredevents"></a> resumeFilteredEvents
+
+▸ **resumeFilteredEvents**(): `void`
+
+恢复onFiltered事件
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+//Define custom slicer.
+function MySlicer(container) {
+    this.container = container;
+    this.slicerData = null;
+    this.columnName = null;
+}
+MySlicer.prototype.setData = function (slicerData, columnName) {
+    this.slicerData = slicerData;
+    this.columnName = columnName;
+    // attach listener here
+    this.slicerData.attachListener(this);
+}
+MySlicer.prototype.onFiltered = function () {
+    console.log('filter event triggered');
+}
+//create a custom slicer and add this slicer to the "slicerContainer" div.
+var slicer = new MySlicer($("#slicerContainer")[0]);
+slicer.setData(slicerData, 'Name');
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1]});
+// watch console log: 'filter event triggered'
+slicerData.suspendFilteredEvents();
+slicerData.doFilter('Name', {exclusiveRowIndexes: [0]});
+// watch console log: nothing
+slicerData.suspendFilteredEvents();
+slicerData.doFilter('Name', {exclusiveRowIndexes: [0, 1]});
+// watch console log: 'filter event triggered'
+```
+
+#### Returns
+
+`void`
+
+___
+
+### <a id="suspendfilteredevents" name="suspendfilteredevents"></a> suspendFilteredEvents
+
+▸ **suspendFilteredEvents**(): `void`
+
+挂起onFiltered事件
+
+**`example`**
+```
+var slicerData = new GC.Spread.Slicers.GeneralSlicerData(
+    [
+        [
+            { value: 'Bob', text: 'Bob' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1968/6/8"), text: '6/8/1968' },
+            { value: 10000, text: '10 000' }
+        ],
+        [
+            { value: 'Betty', text: 'Betty' },
+            { value: 'NewYork', text: 'NewYork' },
+            { value: new Date("1972/7/3"), text: '7/3/1972' },
+            { value: 8000, text: '8 000' }
+        ],
+    ], ["Name", "City", "Birthday", "Salary"]
+);
+//Define custom slicer.
+function MySlicer(container) {
+    this.container = container;
+    this.slicerData = null;
+    this.columnName = null;
+}
+MySlicer.prototype.setData = function (slicerData, columnName) {
+    this.slicerData = slicerData;
+    this.columnName = columnName;
+    // attach listener here
+    this.slicerData.attachListener(this);
+}
+MySlicer.prototype.onFiltered = function () {
+    console.log('filter event triggered');
+}
+//create a custom slicer and add this slicer to the "slicerContainer" div.
+var slicer = new MySlicer($("#slicerContainer")[0]);
+slicer.setData(slicerData, 'Name');
+slicerData.doFilter('Name', {exclusiveRowIndexes: [1]});
+// watch console log: 'filter event triggered'
+slicerData.suspendFilteredEvents();
+slicerData.doFilter('Name', {exclusiveRowIndexes: [0]});
+// watch console log: nothing
+slicerData.suspendFilteredEvents();
+slicerData.doFilter('Name', {exclusiveRowIndexes: [0, 1]});
+// watch console log: 'filter event triggered'
+```
+
+#### Returns
+
+`void`

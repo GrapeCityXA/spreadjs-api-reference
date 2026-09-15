@@ -1,0 +1,87 @@
+# Interface: IPredefinedFormats
+
+[Spread](../modules/GC.Spread.md).[Common](../modules/GC.Spread.Common.md).IPredefinedFormats
+
+## Table of contents
+
+### Properties
+
+- [Accounting](GC.Spread.Common.IPredefinedFormats.md#accounting)
+- [Comma](GC.Spread.Common.IPredefinedFormats.md#comma)
+- [Currency](GC.Spread.Common.IPredefinedFormats.md#currency)
+- [Date](GC.Spread.Common.IPredefinedFormats.md#date)
+- [Special](GC.Spread.Common.IPredefinedFormats.md#special)
+- [Time](GC.Spread.Common.IPredefinedFormats.md#time)
+- [shortcut](GC.Spread.Common.IPredefinedFormats.md#shortcut)
+
+## Properties
+
+### <a id="accounting" name="accounting"></a> Accounting
+
+• `Optional` **Accounting**: `string`
+
+会计类别中显示的格式。
+
+___
+
+### <a id="comma" name="comma"></a> Comma
+
+• `Optional` **Comma**: `string`
+
+会计类别中无符号显示的格式。
+
+___
+
+### <a id="currency" name="currency"></a> Currency
+
+• `Optional` **Currency**: `string`[]
+
+货币类别中显示的格式。
+
+___
+
+### <a id="date" name="date"></a> Date
+
+• `Optional` **Date**: `string`[]
+
+日期类别中的格式。
+
+___
+
+### <a id="special" name="special"></a> Special
+
+• `Optional` **Special**: `Object`
+
+#### Index signature
+
+▪ [K: `string`]: `string`
+
+___
+
+### <a id="time" name="time"></a> Time
+
+• `Optional` **Time**: `string`[]
+
+时间类别中的格式。
+
+___
+
+### <a id="shortcut" name="shortcut"></a> shortcut
+
+• `Optional` **shortcut**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `Accounting?` | `string` |
+| `Comma?` | `string` |
+| `Currency?` | `string` |
+| `Fraction?` | `string` |
+| `LongDate?` | `string` |
+| `Number?` | `string` |
+| `Percentage?` | `string` |
+| `Scientific?` | `string` |
+| `ShortDate?` | `string` |
+| `Text?` | `string` |
+| `Time?` | `string` |

@@ -1,0 +1,237 @@
+# Class: SqliteDb<S, T\>
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `S` | `unknown` |
+| `T` | `unknown` |
+
+## Hierarchy
+
+- `Db`<`S`, `T`\>
+
+  ↳ **`SqliteDb`**
+
+## Table of contents
+
+### Constructors
+
+- [constructor](SqliteDb.md#constructor)
+
+### Methods
+
+- [close](SqliteDb.md#close)
+- [commitOp](SqliteDb.md#commitop)
+- [commitSnapshot](SqliteDb.md#commitsnapshot)
+- [getCommittedOpVersion](SqliteDb.md#getcommittedopversion)
+- [getDocument](SqliteDb.md#getdocument)
+- [getFragment](SqliteDb.md#getfragment)
+- [getFragments](SqliteDb.md#getfragments)
+- [getOps](SqliteDb.md#getops)
+- [getSnapshot](SqliteDb.md#getsnapshot)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new SqliteDb**<`S`, `T`\>(`db`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `S` | `unknown` |
+| `T` | `unknown` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `db` | `Database` |
+
+#### Overrides
+
+Db&lt;S, T\&gt;.constructor
+
+## Methods
+
+### <a id="close" name="close"></a> close
+
+▸ **close**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Overrides
+
+Db.close
+
+___
+
+### <a id="commitop" name="commitop"></a> commitOp
+
+▸ **commitOp**(`id`, `op`, `document`): `Promise`<`boolean`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+| `op` | `IOp`<`T`\> |
+| `document` | `IDocument` |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Overrides
+
+Db.commitOp
+
+___
+
+### <a id="commitsnapshot" name="commitsnapshot"></a> commitSnapshot
+
+▸ **commitSnapshot**(`roomId`, `snapshot`): `Promise`<`boolean`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roomId` | `string` |
+| `snapshot` | `ICommitSnapshot`<`S`\> |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Overrides
+
+Db.commitSnapshot
+
+___
+
+### <a id="getcommittedopversion" name="getcommittedopversion"></a> getCommittedOpVersion
+
+▸ **getCommittedOpVersion**(`id`, `to`, `op`): `Promise`<`undefined` \| `number`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+| `to` | `number` |
+| `op` | `IOp`<`object`\> |
+
+#### Returns
+
+`Promise`<`undefined` \| `number`\>
+
+#### Inherited from
+
+Db.getCommittedOpVersion
+
+___
+
+### <a id="getdocument" name="getdocument"></a> getDocument
+
+▸ **getDocument**(`roomId`): `Promise`<`undefined` \| `IDocument`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roomId` | `string` |
+
+#### Returns
+
+`Promise`<`undefined` \| `IDocument`\>
+
+#### Overrides
+
+Db.getDocument
+
+___
+
+### <a id="getfragment" name="getfragment"></a> getFragment
+
+▸ **getFragment**(`roomId`, `fragmentId`): `Promise`<`undefined` \| `S`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roomId` | `string` |
+| `fragmentId` | `string` |
+
+#### Returns
+
+`Promise`<`undefined` \| `S`\>
+
+#### Overrides
+
+Db.getFragment
+
+___
+
+### <a id="getfragments" name="getfragments"></a> getFragments
+
+▸ **getFragments**(`roomId`): `Promise`<`ISnapshotFragments`<`S`\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roomId` | `string` |
+
+#### Returns
+
+`Promise`<`ISnapshotFragments`<`S`\>\>
+
+#### Overrides
+
+Db.getFragments
+
+___
+
+### <a id="getops" name="getops"></a> getOps
+
+▸ **getOps**(`roomId`, `fromVersion`, `toVersion?`): `Promise`<`IOp`<`T`\>[]\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roomId` | `string` |
+| `fromVersion` | `number` |
+| `toVersion?` | `number` |
+
+#### Returns
+
+`Promise`<`IOp`<`T`\>[]\>
+
+#### Overrides
+
+Db.getOps
+
+___
+
+### <a id="getsnapshot" name="getsnapshot"></a> getSnapshot
+
+▸ **getSnapshot**(`roomId`): `Promise`<`undefined` \| `ISnapshot`<`S`\>\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `roomId` | `string` |
+
+#### Returns
+
+`Promise`<`undefined` \| `ISnapshot`<`S`\>\>
+
+#### Overrides
+
+Db.getSnapshot

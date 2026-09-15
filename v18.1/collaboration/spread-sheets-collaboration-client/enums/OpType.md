@@ -1,0 +1,1277 @@
+# Enumeration: OpType
+
+定义操作类型
+
+## Table of contents
+
+### Enumeration members
+
+- [addAutoMerge](OpType.md#addautomerge)
+- [addCellState](OpType.md#addcellstate)
+- [addChildShape](OpType.md#addchildshape)
+- [addColumns](OpType.md#addcolumns)
+- [addComment](OpType.md#addcomment)
+- [addCustomDocProp](OpType.md#addcustomdocprop)
+- [addCustomTheme](OpType.md#addcustomtheme)
+- [addDataValidator](OpType.md#adddatavalidator)
+- [addExternalReference](OpType.md#addexternalreference)
+- [addGroup](OpType.md#addgroup)
+- [addNamedStyle](OpType.md#addnamedstyle)
+- [addPivotCache](OpType.md#addpivotcache)
+- [addPivotField](OpType.md#addpivotfield)
+- [addPivotTable](OpType.md#addpivottable)
+- [addRows](OpType.md#addrows)
+- [addRule](OpType.md#addrule)
+- [addShape](OpType.md#addshape)
+- [addSheet](OpType.md#addsheet)
+- [addSheetNamedStyle](OpType.md#addsheetnamedstyle)
+- [addSheetTabStyle](OpType.md#addsheettabstyle)
+- [addSpan](OpType.md#addspan)
+- [addSparklineEx](OpType.md#addsparklineex)
+- [addSparklineForGroup](OpType.md#addsparklineforgroup)
+- [addSparklineGroup](OpType.md#addsparklinegroup)
+- [addTable](OpType.md#addtable)
+- [addTableColumn](OpType.md#addtablecolumn)
+- [addTableRow](OpType.md#addtablerow)
+- [clearCustomDocProp](OpType.md#clearcustomdocprop)
+- [clearCustomName](OpType.md#clearcustomname)
+- [clearRange](OpType.md#clearrange)
+- [clearRule](OpType.md#clearrule)
+- [clearSheetScopeCustomName](OpType.md#clearsheetscopecustomname)
+- [clearSheetTabStyle](OpType.md#clearsheettabstyle)
+- [clearSheets](OpType.md#clearsheets)
+- [clearSparklineForGroup](OpType.md#clearsparklineforgroup)
+- [deleteColumns](OpType.md#deletecolumns)
+- [deleteGroupItem](OpType.md#deletegroupitem)
+- [deleteRows](OpType.md#deleterows)
+- [filterItemMap](OpType.md#filteritemmap)
+- [filterRowVisibleInfo](OpType.md#filterrowvisibleinfo)
+- [filteredColumns](OpType.md#filteredcolumns)
+- [groupSparkline](OpType.md#groupsparkline)
+- [insertGroupItem](OpType.md#insertgroupitem)
+- [removeAutoMerge](OpType.md#removeautomerge)
+- [removeCellState](OpType.md#removecellstate)
+- [removeChildShape](OpType.md#removechildshape)
+- [removeComment](OpType.md#removecomment)
+- [removeCustomDocProp](OpType.md#removecustomdocprop)
+- [removeCustomTheme](OpType.md#removecustomtheme)
+- [removeDataValidator](OpType.md#removedatavalidator)
+- [removeGroup](OpType.md#removegroup)
+- [removeNamedStyle](OpType.md#removenamedstyle)
+- [removePivotCache](OpType.md#removepivotcache)
+- [removePivotField](OpType.md#removepivotfield)
+- [removePivotTable](OpType.md#removepivottable)
+- [removeRule](OpType.md#removerule)
+- [removeShape](OpType.md#removeshape)
+- [removeSheet](OpType.md#removesheet)
+- [removeSheetNamedStyle](OpType.md#removesheetnamedstyle)
+- [removeSheetTabStyle](OpType.md#removesheettabstyle)
+- [removeSpan](OpType.md#removespan)
+- [removeSparklineEx](OpType.md#removesparklineex)
+- [removeSparklineForGroup](OpType.md#removesparklineforgroup)
+- [removeSparklineGroup](OpType.md#removesparklinegroup)
+- [removeTable](OpType.md#removetable)
+- [removeTableColumn](OpType.md#removetablecolumn)
+- [removeTableRow](OpType.md#removetablerow)
+- [reorderChildShape](OpType.md#reorderchildshape)
+- [reorderShape](OpType.md#reordershape)
+- [reorderSheet](OpType.md#reordersheet)
+- [resetGroup](OpType.md#resetgroup)
+- [setActiveSheetId](OpType.md#setactivesheetid)
+- [setAxisOptions](OpType.md#setaxisoptions)
+- [setAxisSize](OpType.md#setaxissize)
+- [setCellState](OpType.md#setcellstate)
+- [setColumnCount](OpType.md#setcolumncount)
+- [setCurrentTheme](OpType.md#setcurrenttheme)
+- [setCustomDocProps](OpType.md#setcustomdocprops)
+- [setCustomName](OpType.md#setcustomname)
+- [setDataValidatorRange](OpType.md#setdatavalidatorrange)
+- [setDirection](OpType.md#setdirection)
+- [setFileInfo](OpType.md#setfileinfo)
+- [setFilter](OpType.md#setfilter)
+- [setFreeAreaCount](OpType.md#setfreeareacount)
+- [setFrozen](OpType.md#setfrozen)
+- [setGroupItems](OpType.md#setgroupitems)
+- [setGroupSparklines](OpType.md#setgroupsparklines)
+- [setHeaderFitMode](OpType.md#setheaderfitmode)
+- [setOutlineColumnOptions](OpType.md#setoutlinecolumnoptions)
+- [setOutlineColumnProperty](OpType.md#setoutlinecolumnproperty)
+- [setPrintInfo](OpType.md#setprintinfo)
+- [setPrintInfoOption](OpType.md#setprintinfooption)
+- [setRange](OpType.md#setrange)
+- [setRowCount](OpType.md#setrowcount)
+- [setSheetAreaAutoMerge](OpType.md#setsheetareaautomerge)
+- [setSheetName](OpType.md#setsheetname)
+- [setSheetScopeCustomName](OpType.md#setsheetscopecustomname)
+- [setSheetVisible](OpType.md#setsheetvisible)
+- [setStartSheetIndex](OpType.md#setstartsheetindex)
+- [setTabSelected](OpType.md#settabselected)
+- [setTableColumnProperty](OpType.md#settablecolumnproperty)
+- [setTableLayoutStyle](OpType.md#settablelayoutstyle)
+- [setTableProperty](OpType.md#settableproperty)
+- [setWorkbookOptions](OpType.md#setworkbookoptions)
+- [setWorkbookProperty](OpType.md#setworkbookproperty)
+- [setWorksheetOptions](OpType.md#setworksheetoptions)
+- [showFooter](OpType.md#showfooter)
+- [showHeader](OpType.md#showheader)
+- [showOutline](OpType.md#showoutline)
+- [sortSwap](OpType.md#sortswap)
+- [switchPivotCache](OpType.md#switchpivotcache)
+- [updateCellState](OpType.md#updatecellstate)
+- [updateChart](OpType.md#updatechart)
+- [updateChartSeries](OpType.md#updatechartseries)
+- [updateCollapsed](OpType.md#updatecollapsed)
+- [updateComment](OpType.md#updatecomment)
+- [updateCustomDocProp](OpType.md#updatecustomdocprop)
+- [updateCustomTheme](OpType.md#updatecustomtheme)
+- [updateDataValidator](OpType.md#updatedatavalidator)
+- [updateDocProp](OpType.md#updatedocprop)
+- [updateDocPropForApp](OpType.md#updatedocpropforapp)
+- [updateDocPropForCore](OpType.md#updatedocpropforcore)
+- [updateExternalReference](OpType.md#updateexternalreference)
+- [updateFieldsModel](OpType.md#updatefieldsmodel)
+- [updateFilterButtonVisibleInfo](OpType.md#updatefilterbuttonvisibleinfo)
+- [updateFilterRange](OpType.md#updatefilterrange)
+- [updateFilterSortInfo](OpType.md#updatefiltersortinfo)
+- [updatePivotCache](OpType.md#updatepivotcache)
+- [updatePivotCacheField](OpType.md#updatepivotcachefield)
+- [updatePivotTableLayout](OpType.md#updatepivottablelayout)
+- [updateRule](OpType.md#updaterule)
+- [updateShapeFormula](OpType.md#updateshapeformula)
+- [updateShapeProp](OpType.md#updateshapeprop)
+- [updateShapeTransform](OpType.md#updateshapetransform)
+- [updateSortState](OpType.md#updatesortstate)
+- [updateSpan](OpType.md#updatespan)
+- [updateSparkline](OpType.md#updatesparkline)
+- [updateSparklineGroup](OpType.md#updatesparklinegroup)
+- [updateTablePosition](OpType.md#updatetableposition)
+- [updateTopLeftPosition](OpType.md#updatetopleftposition)
+- [updateZoom](OpType.md#updatezoom)
+
+## Enumeration members
+
+### <a id="addautomerge" name="addautomerge"></a> addAutoMerge
+
+• **addAutoMerge** = `311`
+
+addAutoMerge
+
+___
+
+### <a id="addcellstate" name="addcellstate"></a> addCellState
+
+• **addCellState** = `351`
+
+addCellState
+
+___
+
+### <a id="addchildshape" name="addchildshape"></a> addChildShape
+
+• **addChildShape** = `207`
+
+addChildShape
+
+___
+
+### <a id="addcolumns" name="addcolumns"></a> addColumns
+
+• **addColumns** = `39`
+
+addColumns
+
+___
+
+### <a id="addcomment" name="addcomment"></a> addComment
+
+• **addComment** = `161`
+
+addComment
+
+___
+
+### <a id="addcustomdocprop" name="addcustomdocprop"></a> addCustomDocProp
+
+• **addCustomDocProp** = `21`
+
+addCustomDocProp
+
+___
+
+### <a id="addcustomtheme" name="addcustomtheme"></a> addCustomTheme
+
+• **addCustomTheme** = `12`
+
+addCustomTheme
+
+___
+
+### <a id="adddatavalidator" name="adddatavalidator"></a> addDataValidator
+
+• **addDataValidator** = `361`
+
+addDataValidator
+
+___
+
+### <a id="addexternalreference" name="addexternalreference"></a> addExternalReference
+
+• **addExternalReference** = `101`
+
+addExternalReference
+
+___
+
+### <a id="addgroup" name="addgroup"></a> addGroup
+
+• **addGroup** = `141`
+
+addGroup
+
+___
+
+### <a id="addnamedstyle" name="addnamedstyle"></a> addNamedStyle
+
+• **addNamedStyle** = `8`
+
+addNamedStyle
+
+___
+
+### <a id="addpivotcache" name="addpivotcache"></a> addPivotCache
+
+• **addPivotCache** = `251`
+
+addPivotCache
+
+___
+
+### <a id="addpivotfield" name="addpivotfield"></a> addPivotField
+
+• **addPivotField** = `275`
+
+addPivotField
+
+___
+
+### <a id="addpivottable" name="addpivottable"></a> addPivotTable
+
+• **addPivotTable** = `271`
+
+addPivotTable
+
+___
+
+### <a id="addrows" name="addrows"></a> addRows
+
+• **addRows** = `33`
+
+addRows
+
+___
+
+### <a id="addrule" name="addrule"></a> addRule
+
+• **addRule** = `301`
+
+addRule
+
+___
+
+### <a id="addshape" name="addshape"></a> addShape
+
+• **addShape** = `201`
+
+addShape
+
+___
+
+### <a id="addsheet" name="addsheet"></a> addSheet
+
+• **addSheet** = `1`
+
+addSheet
+
+___
+
+### <a id="addsheetnamedstyle" name="addsheetnamedstyle"></a> addSheetNamedStyle
+
+• **addSheetNamedStyle** = `10`
+
+addSheetNamedStyle
+
+___
+
+### <a id="addsheettabstyle" name="addsheettabstyle"></a> addSheetTabStyle
+
+• **addSheetTabStyle** = `15`
+
+addSheetTabStyle
+
+___
+
+### <a id="addspan" name="addspan"></a> addSpan
+
+• **addSpan** = `35`
+
+addSpan
+
+___
+
+### <a id="addsparklineex" name="addsparklineex"></a> addSparklineEx
+
+• **addSparklineEx** = `321`
+
+addSparklineEx
+
+___
+
+### <a id="addsparklineforgroup" name="addsparklineforgroup"></a> addSparklineForGroup
+
+• **addSparklineForGroup** = `328`
+
+addSparklineForGroup
+
+___
+
+### <a id="addsparklinegroup" name="addsparklinegroup"></a> addSparklineGroup
+
+• **addSparklineGroup** = `324`
+
+addSparklineGroup
+
+___
+
+### <a id="addtable" name="addtable"></a> addTable
+
+• **addTable** = `171`
+
+addTable
+
+___
+
+### <a id="addtablecolumn" name="addtablecolumn"></a> addTableColumn
+
+• **addTableColumn** = `180`
+
+addTableColumn
+
+___
+
+### <a id="addtablerow" name="addtablerow"></a> addTableRow
+
+• **addTableRow** = `177`
+
+addTableRow
+
+___
+
+### <a id="clearcustomdocprop" name="clearcustomdocprop"></a> clearCustomDocProp
+
+• **clearCustomDocProp** = `23`
+
+clearCustomDocProp
+
+___
+
+### <a id="clearcustomname" name="clearcustomname"></a> clearCustomName
+
+• **clearCustomName** = `31`
+
+clearCustomName
+
+___
+
+### <a id="clearrange" name="clearrange"></a> clearRange
+
+• **clearRange** = `51`
+
+clearRange
+
+___
+
+### <a id="clearrule" name="clearrule"></a> clearRule
+
+• **clearRule** = `304`
+
+clearRule
+
+___
+
+### <a id="clearsheetscopecustomname" name="clearsheetscopecustomname"></a> clearSheetScopeCustomName
+
+• **clearSheetScopeCustomName** = `32`
+
+clearSheetScopeCustomName
+
+___
+
+### <a id="clearsheettabstyle" name="clearsheettabstyle"></a> clearSheetTabStyle
+
+• **clearSheetTabStyle** = `17`
+
+clearSheetTabStyle
+
+___
+
+### <a id="clearsheets" name="clearsheets"></a> clearSheets
+
+• **clearSheets** = `3`
+
+clearSheets
+
+___
+
+### <a id="clearsparklineforgroup" name="clearsparklineforgroup"></a> clearSparklineForGroup
+
+• **clearSparklineForGroup** = `330`
+
+clearSparklineForGroup
+
+___
+
+### <a id="deletecolumns" name="deletecolumns"></a> deleteColumns
+
+• **deleteColumns** = `40`
+
+deleteColumns
+
+___
+
+### <a id="deletegroupitem" name="deletegroupitem"></a> deleteGroupItem
+
+• **deleteGroupItem** = `149`
+
+deleteGroupItem
+
+___
+
+### <a id="deleterows" name="deleterows"></a> deleteRows
+
+• **deleteRows** = `34`
+
+deleteRows
+
+___
+
+### <a id="filteritemmap" name="filteritemmap"></a> filterItemMap
+
+• **filterItemMap** = `122`
+
+filterItemMap
+
+___
+
+### <a id="filterrowvisibleinfo" name="filterrowvisibleinfo"></a> filterRowVisibleInfo
+
+• **filterRowVisibleInfo** = `127`
+
+filterRowVisibleInfo
+
+___
+
+### <a id="filteredcolumns" name="filteredcolumns"></a> filteredColumns
+
+• **filteredColumns** = `123`
+
+filteredColumns
+
+___
+
+### <a id="groupsparkline" name="groupsparkline"></a> groupSparkline
+
+• **groupSparkline** = `326`
+
+groupSparkline
+
+___
+
+### <a id="insertgroupitem" name="insertgroupitem"></a> insertGroupItem
+
+• **insertGroupItem** = `147`
+
+insertGroupItem
+
+___
+
+### <a id="removeautomerge" name="removeautomerge"></a> removeAutoMerge
+
+• **removeAutoMerge** = `312`
+
+removeAutoMerge
+
+___
+
+### <a id="removecellstate" name="removecellstate"></a> removeCellState
+
+• **removeCellState** = `352`
+
+removeCellState
+
+___
+
+### <a id="removechildshape" name="removechildshape"></a> removeChildShape
+
+• **removeChildShape** = `208`
+
+removeChildShape
+
+___
+
+### <a id="removecomment" name="removecomment"></a> removeComment
+
+• **removeComment** = `162`
+
+removeComment
+
+___
+
+### <a id="removecustomdocprop" name="removecustomdocprop"></a> removeCustomDocProp
+
+• **removeCustomDocProp** = `22`
+
+removeCustomDocProp
+
+___
+
+### <a id="removecustomtheme" name="removecustomtheme"></a> removeCustomTheme
+
+• **removeCustomTheme** = `13`
+
+removeCustomTheme
+
+___
+
+### <a id="removedatavalidator" name="removedatavalidator"></a> removeDataValidator
+
+• **removeDataValidator** = `363`
+
+removeDataValidator
+
+___
+
+### <a id="removegroup" name="removegroup"></a> removeGroup
+
+• **removeGroup** = `142`
+
+removeGroup
+
+___
+
+### <a id="removenamedstyle" name="removenamedstyle"></a> removeNamedStyle
+
+• **removeNamedStyle** = `9`
+
+removeNamedStyle
+
+___
+
+### <a id="removepivotcache" name="removepivotcache"></a> removePivotCache
+
+• **removePivotCache** = `252`
+
+removePivotCache
+
+___
+
+### <a id="removepivotfield" name="removepivotfield"></a> removePivotField
+
+• **removePivotField** = `276`
+
+removePivotField
+
+___
+
+### <a id="removepivottable" name="removepivottable"></a> removePivotTable
+
+• **removePivotTable** = `272`
+
+removePivotTable
+
+___
+
+### <a id="removerule" name="removerule"></a> removeRule
+
+• **removeRule** = `303`
+
+removeRule
+
+___
+
+### <a id="removeshape" name="removeshape"></a> removeShape
+
+• **removeShape** = `202`
+
+removeShape
+
+___
+
+### <a id="removesheet" name="removesheet"></a> removeSheet
+
+• **removeSheet** = `2`
+
+removeSheet
+
+___
+
+### <a id="removesheetnamedstyle" name="removesheetnamedstyle"></a> removeSheetNamedStyle
+
+• **removeSheetNamedStyle** = `11`
+
+removeSheetNamedStyle
+
+___
+
+### <a id="removesheettabstyle" name="removesheettabstyle"></a> removeSheetTabStyle
+
+• **removeSheetTabStyle** = `16`
+
+removeSheetTabStyle
+
+___
+
+### <a id="removespan" name="removespan"></a> removeSpan
+
+• **removeSpan** = `36`
+
+removeSpan
+
+___
+
+### <a id="removesparklineex" name="removesparklineex"></a> removeSparklineEx
+
+• **removeSparklineEx** = `322`
+
+removeSparklineEx
+
+___
+
+### <a id="removesparklineforgroup" name="removesparklineforgroup"></a> removeSparklineForGroup
+
+• **removeSparklineForGroup** = `329`
+
+removeSparklineForGroup
+
+___
+
+### <a id="removesparklinegroup" name="removesparklinegroup"></a> removeSparklineGroup
+
+• **removeSparklineGroup** = `325`
+
+removeSparklineGroup
+
+___
+
+### <a id="removetable" name="removetable"></a> removeTable
+
+• **removeTable** = `172`
+
+removeTable
+
+___
+
+### <a id="removetablecolumn" name="removetablecolumn"></a> removeTableColumn
+
+• **removeTableColumn** = `181`
+
+removeTableColumn
+
+___
+
+### <a id="removetablerow" name="removetablerow"></a> removeTableRow
+
+• **removeTableRow** = `178`
+
+removeTableRow
+
+___
+
+### <a id="reorderchildshape" name="reorderchildshape"></a> reorderChildShape
+
+• **reorderChildShape** = `209`
+
+reorderChildShape
+
+___
+
+### <a id="reordershape" name="reordershape"></a> reorderShape
+
+• **reorderShape** = `203`
+
+reorderShape
+
+___
+
+### <a id="reordersheet" name="reordersheet"></a> reorderSheet
+
+• **reorderSheet** = `4`
+
+reorderSheet
+
+___
+
+### <a id="resetgroup" name="resetgroup"></a> resetGroup
+
+• **resetGroup** = `143`
+
+resetGroup
+
+___
+
+### <a id="setactivesheetid" name="setactivesheetid"></a> setActiveSheetId
+
+• **setActiveSheetId** = `6`
+
+setActiveSheetId
+
+___
+
+### <a id="setaxisoptions" name="setaxisoptions"></a> setAxisOptions
+
+• **setAxisOptions** = `47`
+
+setAxisOptions
+
+___
+
+### <a id="setaxissize" name="setaxissize"></a> setAxisSize
+
+• **setAxisSize** = `45`
+
+setAxisSize
+
+___
+
+### <a id="setcellstate" name="setcellstate"></a> setCellState
+
+• **setCellState** = `354`
+
+setCellState
+
+___
+
+### <a id="setcolumncount" name="setcolumncount"></a> setColumnCount
+
+• **setColumnCount** = `42`
+
+setColumnCount
+
+___
+
+### <a id="setcurrenttheme" name="setcurrenttheme"></a> setCurrentTheme
+
+• **setCurrentTheme** = `50`
+
+setCurrentTheme
+
+___
+
+### <a id="setcustomdocprops" name="setcustomdocprops"></a> setCustomDocProps
+
+• **setCustomDocProps** = `25`
+
+setCustomDocProps
+
+___
+
+### <a id="setcustomname" name="setcustomname"></a> setCustomName
+
+• **setCustomName** = `29`
+
+setCustomName
+
+___
+
+### <a id="setdatavalidatorrange" name="setdatavalidatorrange"></a> setDataValidatorRange
+
+• **setDataValidatorRange** = `364`
+
+setDataValidatorRange
+
+___
+
+### <a id="setdirection" name="setdirection"></a> setDirection
+
+• **setDirection** = `145`
+
+setDirection
+
+___
+
+### <a id="setfileinfo" name="setfileinfo"></a> setFileInfo
+
+• **setFileInfo** = `53`
+
+setFileInfo
+
+___
+
+### <a id="setfilter" name="setfilter"></a> setFilter
+
+• **setFilter** = `121`
+
+setFilter
+
+___
+
+### <a id="setfreeareacount" name="setfreeareacount"></a> setFreeAreaCount
+
+• **setFreeAreaCount** = `44`
+
+setFreeAreaCount
+
+___
+
+### <a id="setfrozen" name="setfrozen"></a> setFrozen
+
+• **setFrozen** = `43`
+
+setFrozen
+
+___
+
+### <a id="setgroupitems" name="setgroupitems"></a> setGroupItems
+
+• **setGroupItems** = `148`
+
+setGroupItems
+
+___
+
+### <a id="setgroupsparklines" name="setgroupsparklines"></a> setGroupSparklines
+
+• **setGroupSparklines** = `327`
+
+setGroupSparklines
+
+___
+
+### <a id="setheaderfitmode" name="setheaderfitmode"></a> setHeaderFitMode
+
+• **setHeaderFitMode** = `48`
+
+setHeaderFitMode
+
+___
+
+### <a id="setoutlinecolumnoptions" name="setoutlinecolumnoptions"></a> setOutlineColumnOptions
+
+• **setOutlineColumnOptions** = `371`
+
+setOutlineColumnOptions
+
+___
+
+### <a id="setoutlinecolumnproperty" name="setoutlinecolumnproperty"></a> setOutlineColumnProperty
+
+• **setOutlineColumnProperty** = `372`
+
+setOutlineColumnProperty
+
+___
+
+### <a id="setprintinfo" name="setprintinfo"></a> setPrintInfo
+
+• **setPrintInfo** = `381`
+
+setPrintInfo
+
+___
+
+### <a id="setprintinfooption" name="setprintinfooption"></a> setPrintInfoOption
+
+• **setPrintInfoOption** = `382`
+
+setPrintInfoOption
+
+___
+
+### <a id="setrange" name="setrange"></a> setRange
+
+• **setRange** = `28`
+
+setRange
+
+___
+
+### <a id="setrowcount" name="setrowcount"></a> setRowCount
+
+• **setRowCount** = `41`
+
+setRowCount
+
+___
+
+### <a id="setsheetareaautomerge" name="setsheetareaautomerge"></a> setSheetAreaAutoMerge
+
+• **setSheetAreaAutoMerge** = `313`
+
+setSheetAreaAutoMerge
+
+___
+
+### <a id="setsheetname" name="setsheetname"></a> setSheetName
+
+• **setSheetName** = `27`
+
+setSheetName
+
+___
+
+### <a id="setsheetscopecustomname" name="setsheetscopecustomname"></a> setSheetScopeCustomName
+
+• **setSheetScopeCustomName** = `30`
+
+setSheetScopeCustomName
+
+___
+
+### <a id="setsheetvisible" name="setsheetvisible"></a> setSheetVisible
+
+• **setSheetVisible** = `52`
+
+setSheetVisible
+
+___
+
+### <a id="setstartsheetindex" name="setstartsheetindex"></a> setStartSheetIndex
+
+• **setStartSheetIndex** = `5`
+
+setStartSheetIndex
+
+___
+
+### <a id="settabselected" name="settabselected"></a> setTabSelected
+
+• **setTabSelected** = `26`
+
+setTabSelected
+
+___
+
+### <a id="settablecolumnproperty" name="settablecolumnproperty"></a> setTableColumnProperty
+
+• **setTableColumnProperty** = `182`
+
+setTableColumnProperty
+
+___
+
+### <a id="settablelayoutstyle" name="settablelayoutstyle"></a> setTableLayoutStyle
+
+• **setTableLayoutStyle** = `176`
+
+setTableLayoutStyle
+
+___
+
+### <a id="settableproperty" name="settableproperty"></a> setTableProperty
+
+• **setTableProperty** = `175`
+
+setTableProperty
+
+___
+
+### <a id="setworkbookoptions" name="setworkbookoptions"></a> setWorkbookOptions
+
+• **setWorkbookOptions** = `7`
+
+setWorkbookOptions
+
+___
+
+### <a id="setworkbookproperty" name="setworkbookproperty"></a> setWorkbookProperty
+
+• **setWorkbookProperty** = `55`
+
+setWorkbookProperty
+
+___
+
+### <a id="setworksheetoptions" name="setworksheetoptions"></a> setWorksheetOptions
+
+• **setWorksheetOptions** = `49`
+
+setWorksheetOptions
+
+___
+
+### <a id="showfooter" name="showfooter"></a> showFooter
+
+• **showFooter** = `174`
+
+showFooter
+
+___
+
+### <a id="showheader" name="showheader"></a> showHeader
+
+• **showHeader** = `173`
+
+showHeader
+
+___
+
+### <a id="showoutline" name="showoutline"></a> showOutline
+
+• **showOutline** = `146`
+
+showOutline
+
+___
+
+### <a id="sortswap" name="sortswap"></a> sortSwap
+
+• **sortSwap** = `111`
+
+sortSwap
+
+___
+
+### <a id="switchpivotcache" name="switchpivotcache"></a> switchPivotCache
+
+• **switchPivotCache** = `254`
+
+switchPivotCache
+
+___
+
+### <a id="updatecellstate" name="updatecellstate"></a> updateCellState
+
+• **updateCellState** = `353`
+
+updateCellState
+
+___
+
+### <a id="updatechart" name="updatechart"></a> updateChart
+
+• **updateChart** = `222`
+
+updateChart
+
+___
+
+### <a id="updatechartseries" name="updatechartseries"></a> updateChartSeries
+
+• **updateChartSeries** = `221`
+
+updateChartSeries
+
+___
+
+### <a id="updatecollapsed" name="updatecollapsed"></a> updateCollapsed
+
+• **updateCollapsed** = `144`
+
+updateCollapsed
+
+___
+
+### <a id="updatecomment" name="updatecomment"></a> updateComment
+
+• **updateComment** = `163`
+
+updateComment
+
+___
+
+### <a id="updatecustomdocprop" name="updatecustomdocprop"></a> updateCustomDocProp
+
+• **updateCustomDocProp** = `24`
+
+updateCustomDocProp
+
+___
+
+### <a id="updatecustomtheme" name="updatecustomtheme"></a> updateCustomTheme
+
+• **updateCustomTheme** = `14`
+
+updateCustomTheme
+
+___
+
+### <a id="updatedatavalidator" name="updatedatavalidator"></a> updateDataValidator
+
+• **updateDataValidator** = `362`
+
+updateDataValidator
+
+___
+
+### <a id="updatedocprop" name="updatedocprop"></a> updateDocProp
+
+• **updateDocProp** = `18`
+
+updateDocProp
+
+___
+
+### <a id="updatedocpropforapp" name="updatedocpropforapp"></a> updateDocPropForApp
+
+• **updateDocPropForApp** = `19`
+
+updateDocPropForApp
+
+___
+
+### <a id="updatedocpropforcore" name="updatedocpropforcore"></a> updateDocPropForCore
+
+• **updateDocPropForCore** = `20`
+
+updateDocPropForCore
+
+___
+
+### <a id="updateexternalreference" name="updateexternalreference"></a> updateExternalReference
+
+• **updateExternalReference** = `102`
+
+updateExternalReference
+
+___
+
+### <a id="updatefieldsmodel" name="updatefieldsmodel"></a> updateFieldsModel
+
+• **updateFieldsModel** = `274`
+
+updateFieldsModel
+
+___
+
+### <a id="updatefilterbuttonvisibleinfo" name="updatefilterbuttonvisibleinfo"></a> updateFilterButtonVisibleInfo
+
+• **updateFilterButtonVisibleInfo** = `125`
+
+updateFilterButtonVisibleInfo
+
+___
+
+### <a id="updatefilterrange" name="updatefilterrange"></a> updateFilterRange
+
+• **updateFilterRange** = `126`
+
+updateFilterRange
+
+___
+
+### <a id="updatefiltersortinfo" name="updatefiltersortinfo"></a> updateFilterSortInfo
+
+• **updateFilterSortInfo** = `124`
+
+updateFilterSortInfo
+
+___
+
+### <a id="updatepivotcache" name="updatepivotcache"></a> updatePivotCache
+
+• **updatePivotCache** = `253`
+
+updatePivotCache
+
+___
+
+### <a id="updatepivotcachefield" name="updatepivotcachefield"></a> updatePivotCacheField
+
+• **updatePivotCacheField** = `255`
+
+updatePivotCacheField
+
+___
+
+### <a id="updatepivottablelayout" name="updatepivottablelayout"></a> updatePivotTableLayout
+
+• **updatePivotTableLayout** = `273`
+
+updatePivotTableLayout
+
+___
+
+### <a id="updaterule" name="updaterule"></a> updateRule
+
+• **updateRule** = `302`
+
+updateRule
+
+___
+
+### <a id="updateshapeformula" name="updateshapeformula"></a> updateShapeFormula
+
+• **updateShapeFormula** = `205`
+
+updateShapeFormula
+
+___
+
+### <a id="updateshapeprop" name="updateshapeprop"></a> updateShapeProp
+
+• **updateShapeProp** = `204`
+
+updateShapeProp
+
+___
+
+### <a id="updateshapetransform" name="updateshapetransform"></a> updateShapeTransform
+
+• **updateShapeTransform** = `206`
+
+updateShapeTransform
+
+___
+
+### <a id="updatesortstate" name="updatesortstate"></a> updateSortState
+
+• **updateSortState** = `112`
+
+updateSortState
+
+___
+
+### <a id="updatespan" name="updatespan"></a> updateSpan
+
+• **updateSpan** = `37`
+
+updateSpan
+
+___
+
+### <a id="updatesparkline" name="updatesparkline"></a> updateSparkline
+
+• **updateSparkline** = `331`
+
+updateSparkline
+
+___
+
+### <a id="updatesparklinegroup" name="updatesparklinegroup"></a> updateSparklineGroup
+
+• **updateSparklineGroup** = `323`
+
+updateSparklineGroup
+
+___
+
+### <a id="updatetableposition" name="updatetableposition"></a> updateTablePosition
+
+• **updateTablePosition** = `179`
+
+updateTablePosition
+
+___
+
+### <a id="updatetopleftposition" name="updatetopleftposition"></a> updateTopLeftPosition
+
+• **updateTopLeftPosition** = `54`
+
+updateTopLeftPosition
+
+___
+
+### <a id="updatezoom" name="updatezoom"></a> updateZoom
+
+• **updateZoom** = `46`
+
+updateZoom

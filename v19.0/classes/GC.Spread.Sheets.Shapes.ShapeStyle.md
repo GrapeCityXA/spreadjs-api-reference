@@ -1,0 +1,215 @@
+# Class: ShapeStyle
+
+[Sheets](../modules/GC.Spread.Sheets.md).[Shapes](../modules/GC.Spread.Sheets.Shapes.md).ShapeStyle
+
+## Table of contents
+
+### Constructors
+
+- [constructor](GC.Spread.Sheets.Shapes.ShapeStyle.md#constructor)
+
+### Properties
+
+- [fill](GC.Spread.Sheets.Shapes.ShapeStyle.md#fill)
+- [line](GC.Spread.Sheets.Shapes.ShapeStyle.md#line)
+- [textEffect](GC.Spread.Sheets.Shapes.ShapeStyle.md#texteffect)
+- [textFrame](GC.Spread.Sheets.Shapes.ShapeStyle.md#textframe)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new ShapeStyle**(`style?`)
+
+表示形状样式。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `style?` | `Object` | 样式是一个与ShapeStyle实例具有相同结构的对象，它是可选的。 |
+
+## Properties
+
+### <a id="fill" name="fill"></a> fill
+
+• **fill**: [`IShapeFill`](../interfaces/GC.Spread.Sheets.Shapes.IShapeFill.md) \| [`IShapeGradientFill`](../interfaces/GC.Spread.Sheets.Shapes.IShapeGradientFill.md) \| [`IShapePictureFill`](../interfaces/GC.Spread.Sheets.Shapes.IShapePictureFill.md) \| [`IShapeTextureFill`](../interfaces/GC.Spread.Sheets.Shapes.IShapeTextureFill.md)
+
+表示填充选项。
+
+**`example`**
+```
+//此示例为形状设置背景颜色和背景颜色透明度。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = heart.style();
+oldStyle.fill = {
+    type: GC.Spread.Sheets.Shapes.ShapeFillType.solid,
+    color: "red",
+    transparency: 0.5
+};
+heart.style(oldStyle);
+
+//此示例为形状设置渐变背景。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = heart.style();
+oldStyle.fill = {
+    type: GC.Spread.Sheets.Shapes.GradientFillType.linear,
+    angle: 45,
+    stops: [
+        { color: 'blue', position: 0},
+        { color: 'pink', position: 1}
+    ]
+};
+heart.style(oldStyle);
+
+//此示例为形状设置图片背景。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = heart.style();
+oldStyle.fill = { src: "data:image/svg+xml;base64....." };
+heart.style(oldStyle);
+
+//此示例使用公式为形状设置背景颜色和背景颜色透明度。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+sheet.setValue(0, 1, 1);
+sheet.setValue(1, 1, "red");
+sheet.setValue(2, 1, 0.5);
+var oldStyle = heart.style();
+oldStyle.fill = {
+    type: "=Sheet1!B1",
+    color: "=Sheet1!B2",
+    transparency: "=Sheet1!B3"
+};
+heart.style(oldStyle);
+
+//此示例使用公式为形状设置渐变背景。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = heart.style();
+oldStyle.fill = {
+    type: "=Sheet1!A1",
+    angle: "=Sheet1!B1",
+    stops: [
+        { color: "=Sheet1!A2", position: "=Sheet1!B2"},
+        { color: "=Sheet1!A3", position: "=Sheet1!B3"}
+    ]
+};
+heart.style(oldStyle);
+```
+
+___
+
+### <a id="line" name="line"></a> line
+
+• **line**: [`IShapeLine`](../interfaces/GC.Spread.Sheets.Shapes.IShapeLine.md)
+
+表示线条选项。
+
+**`example`**
+```
+//此示例为形状设置线条颜色、线条样式、线条宽度、端点类型、连接类型和线条颜色透明度。
+var shape = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = shape.style();
+oldStyle.line.color = "red";
+oldStyle.line.lineStyle = GC.Spread.Sheets.Shapes.PresetLineDashStyle.dashDot;
+oldStyle.line.width = 5;
+oldStyle.line.capType = GC.Spread.Sheets.Shapes.LineCapStyle.square;
+oldStyle.line.joinType = GC.Spread.Sheets.Shapes.LineJoinStyle.miter;
+oldStyle.line.compoundType = GC.Spread.Sheets.Shapes.CompoundType.double;
+oldStyle.line.transparency = 0.5;
+shape.style(oldStyle);
+
+//此示例使用公式为形状设置线条颜色、线条样式、线条宽度、端点类型、连接类型和线条颜色透明度。
+var shape = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+sheet.setValue(0, 1, "red");
+sheet.setValue(1, 1, 4);
+sheet.setValue(2, 1, 5);
+sheet.setValue(3, 1, 1);
+sheet.setValue(4, 1, 1);
+sheet.setValue(5, 1, 0.5);
+var oldStyle = shape.style();
+oldStyle.line.color = "=Sheet1!B1";
+oldStyle.line.lineStyle = "=Sheet1!B2";
+oldStyle.line.width = "=Sheet1!B3";
+oldStyle.line.capType = "=Sheet1!B4";
+oldStyle.line.joinType = "=Sheet1!B5";
+oldStyle.line.transparency = "=Sheet1!B6";
+oldStyle.line.compoundType = "=Sheet1!B7";
+shape.style(oldStyle);
+
+//此示例为形状设置线条的起始箭头样式、宽度、长度和结束箭头样式、宽度、高度。
+var shape = sheet.shapes.addConnector("Shape1", GC.Spread.Sheets.Shapes.ConnectorType.straight, 100, 60, 200, 160);
+var oldStyle = shape.style();
+oldStyle.line.beginArrowheadStyle = GC.Spread.Sheets.Shapes.ArrowheadStyle.triangle;
+oldStyle.line.beginArrowheadWidth = GC.Spread.Sheets.Shapes.ArrowheadWidth.narrow;
+oldStyle.line.beginArrowheadLength = GC.Spread.Sheets.Shapes.ArrowheadLength.short;
+oldStyle.line.endArrowheadStyle = GC.Spread.Sheets.Shapes.ArrowheadStyle.diamond;
+oldStyle.line.endArrowheadWidth = GC.Spread.Sheets.Shapes.ArrowheadWidth.wide;
+oldStyle.line.endArrowheadLength = GC.Spread.Sheets.Shapes.ArrowheadLength.long;
+shape.style(oldStyle);
+```
+
+___
+
+### <a id="texteffect" name="texteffect"></a> textEffect
+
+• **textEffect**: [`IShapeTextEffect`](../interfaces/GC.Spread.Sheets.Shapes.IShapeTextEffect.md)
+
+表示文本效果选项。
+
+**`example`**
+```
+//此示例为形状设置字体颜色、字体颜色透明度和字体。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = heart.style();
+oldStyle.textEffect.color = "red";
+oldStyle.textEffect.transparency = 0.5;
+oldStyle.textEffect.font = "20px Arial";
+heart.style(oldStyle);
+heart.text("Heart");
+
+//此示例使用公式为形状设置字体颜色、字体颜色透明度和字体。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+sheet.setValue(0, 1, "red");
+sheet.setValue(1, 1, 0.5);
+sheet.setValue(2, 1, "20px Arial");
+var oldStyle = heart.style();
+oldStyle.textEffect.color = "=Sheet1!B1";
+oldStyle.textEffect.transparency = "=Sheet1!B2";
+oldStyle.textEffect.font = "=Sheet1!B3";
+heart.style(oldStyle);
+heart.text("Heart");
+```
+
+___
+
+### <a id="textframe" name="textframe"></a> textFrame
+
+• **textFrame**: [`IShapeTextFrame`](../interfaces/GC.Spread.Sheets.Shapes.IShapeTextFrame.md)
+
+表示文本框选项。
+
+**`example`**
+```
+//此示例为形状设置文本水平对齐和垂直对齐。
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+var oldStyle = heart.style();
+oldStyle.textFrame.vAlign = GC.Spread.Sheets.VerticalAlign.center;
+oldStyle.textFrame.hAlign = GC.Spread.Sheets.HorizontalAlign.center;
+heart.style(oldStyle);
+heart.text("Heart");
+
+//This sample sets the text horizontal alignment and vertical alignment with formula for the shape.
+var heart = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.heart, 100, 60, 200, 160);
+sheet.setValue(0, 1, 1);
+sheet.setValue(1, 1, 1);
+var oldStyle = heart.style();
+oldStyle.textFrame.vAlign = "=Sheet1!B1";
+oldStyle.textFrame.hAlign = "=Sheet1!B2";
+heart.style(oldStyle);
+heart.text("Heart");
+
+// This sample sets the resizeToFitText for the shape.
+var rectangle = sheet.shapes.add("Shape1", GC.Spread.Sheets.Shapes.AutoShapeType.rectangle, 100, 60, 200, 160);
+var oldStyle = rectangle.style();
+oldStyle.textFrame.resizeToFitText = true;
+rectangle.style(style);
+```

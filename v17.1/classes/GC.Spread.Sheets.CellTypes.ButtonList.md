@@ -1,0 +1,1105 @@
+# Class: ButtonList
+
+[Sheets](../modules/GC.Spread.Sheets.md).[CellTypes](../modules/GC.Spread.Sheets.CellTypes.md).ButtonList
+
+## Hierarchy
+
+- [`Base`](GC.Spread.Sheets.CellTypes.Base.md)
+
+  ↳ **`ButtonList`**
+
+## Table of contents
+
+### Constructors
+
+- [constructor](GC.Spread.Sheets.CellTypes.ButtonList.md#constructor)
+
+### Properties
+
+- [typeName](GC.Spread.Sheets.CellTypes.ButtonList.md#typename)
+
+### Methods
+
+- [activateEditor](GC.Spread.Sheets.CellTypes.ButtonList.md#activateeditor)
+- [createEditorElement](GC.Spread.Sheets.CellTypes.ButtonList.md#createeditorelement)
+- [deactivateEditor](GC.Spread.Sheets.CellTypes.ButtonList.md#deactivateeditor)
+- [direction](GC.Spread.Sheets.CellTypes.ButtonList.md#direction)
+- [focus](GC.Spread.Sheets.CellTypes.ButtonList.md#focus)
+- [format](GC.Spread.Sheets.CellTypes.ButtonList.md#format)
+- [fromJSON](GC.Spread.Sheets.CellTypes.ButtonList.md#fromjson)
+- [getAutoFitHeight](GC.Spread.Sheets.CellTypes.ButtonList.md#getautofitheight)
+- [getAutoFitWidth](GC.Spread.Sheets.CellTypes.ButtonList.md#getautofitwidth)
+- [getEditorValue](GC.Spread.Sheets.CellTypes.ButtonList.md#geteditorvalue)
+- [getHitInfo](GC.Spread.Sheets.CellTypes.ButtonList.md#gethitinfo)
+- [isEditingValueChanged](GC.Spread.Sheets.CellTypes.ButtonList.md#iseditingvaluechanged)
+- [isFlowLayout](GC.Spread.Sheets.CellTypes.ButtonList.md#isflowlayout)
+- [isImeAware](GC.Spread.Sheets.CellTypes.ButtonList.md#isimeaware)
+- [isReservedKey](GC.Spread.Sheets.CellTypes.ButtonList.md#isreservedkey)
+- [itemSpacing](GC.Spread.Sheets.CellTypes.ButtonList.md#itemspacing)
+- [items](GC.Spread.Sheets.CellTypes.ButtonList.md#items)
+- [maxColumnCount](GC.Spread.Sheets.CellTypes.ButtonList.md#maxcolumncount)
+- [maxRowCount](GC.Spread.Sheets.CellTypes.ButtonList.md#maxrowcount)
+- [padding](GC.Spread.Sheets.CellTypes.ButtonList.md#padding)
+- [paint](GC.Spread.Sheets.CellTypes.ButtonList.md#paint)
+- [paintContent](GC.Spread.Sheets.CellTypes.ButtonList.md#paintcontent)
+- [parse](GC.Spread.Sheets.CellTypes.ButtonList.md#parse)
+- [processKeyDown](GC.Spread.Sheets.CellTypes.ButtonList.md#processkeydown)
+- [processKeyUp](GC.Spread.Sheets.CellTypes.ButtonList.md#processkeyup)
+- [processMouseDown](GC.Spread.Sheets.CellTypes.ButtonList.md#processmousedown)
+- [processMouseEnter](GC.Spread.Sheets.CellTypes.ButtonList.md#processmouseenter)
+- [processMouseLeave](GC.Spread.Sheets.CellTypes.ButtonList.md#processmouseleave)
+- [processMouseMove](GC.Spread.Sheets.CellTypes.ButtonList.md#processmousemove)
+- [processMouseUp](GC.Spread.Sheets.CellTypes.ButtonList.md#processmouseup)
+- [selectAll](GC.Spread.Sheets.CellTypes.ButtonList.md#selectall)
+- [selectedBackColor](GC.Spread.Sheets.CellTypes.ButtonList.md#selectedbackcolor)
+- [selectedForeColor](GC.Spread.Sheets.CellTypes.ButtonList.md#selectedforecolor)
+- [selectionMode](GC.Spread.Sheets.CellTypes.ButtonList.md#selectionmode)
+- [setEditorValue](GC.Spread.Sheets.CellTypes.ButtonList.md#seteditorvalue)
+- [toJSON](GC.Spread.Sheets.CellTypes.ButtonList.md#tojson)
+- [updateEditor](GC.Spread.Sheets.CellTypes.ButtonList.md#updateeditor)
+- [updateEditorContainer](GC.Spread.Sheets.CellTypes.ButtonList.md#updateeditorcontainer)
+- [updateImeMode](GC.Spread.Sheets.CellTypes.ButtonList.md#updateimemode)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new ButtonList**()
+
+一个可编辑的buttonList单元格
+
+**`代码示例`**
+```
+//本示例创建一个buttonList单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+activeSheet.getCell(2, 2).cellType(cellType2);
+```
+
+#### Overrides
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[constructor](GC.Spread.Sheets.CellTypes.Base.md#constructor)
+
+## Properties
+
+### <a id="typename" name="typename"></a> typeName
+
+• **typeName**: `string`
+
+支持序列化的类型名称字符串
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[typeName](GC.Spread.Sheets.CellTypes.Base.md#typename)
+
+## Methods
+
+### <a id="activateeditor" name="activateeditor"></a> activateEditor
+
+▸ **activateEditor**(`editorContext`, `cellStyle`, `cellRect`, `context?`): `void`
+
+激活编辑器，包括为编辑器设置属性或属性以及为编辑器绑定事件
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `cellStyle` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际样式 |
+| `cellRect` | [`Rect`](GC.Spread.Sheets.Rect.md) | 单元格的布局信息 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[activateEditor](GC.Spread.Sheets.CellTypes.Base.md#activateeditor)
+
+___
+
+### <a id="createeditorelement" name="createeditorelement"></a> createEditorElement
+
+▸ **createEditorElement**(`context?`): `HTMLElement`
+
+创建一个DOM元素，然后返回
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`HTMLElement`
+
+创建一个DOM元素，然后返回
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[createEditorElement](GC.Spread.Sheets.CellTypes.Base.md#createeditorelement)
+
+___
+
+### <a id="deactivateeditor" name="deactivateeditor"></a> deactivateEditor
+
+▸ **deactivateEditor**(`editorContext`, `context?`): `void`
+
+停用编辑器，例如解除绑定编辑器事件
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[deactivateEditor](GC.Spread.Sheets.CellTypes.Base.md#deactivateeditor)
+
+___
+
+### <a id="direction" name="direction"></a> direction
+
+▸ **direction**(`value?`): `any`
+
+获取或设置buttonList列表的顺序
+
+**`代码示例`**
+```
+//本示例创建一个buttonList列表单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+cellType2.direction(GC.Spread.Sheets.CellTypes.Direction.vertical);
+activeSheet.getCell(2, 2).cellType(cellType2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | [`Direction`](../enums/GC.Spread.Sheets.CellTypes.Direction.md) | 顺序是否垂直 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回buttonList列表的顺序是否垂直 否则，返回复选框列表cellType
+
+___
+
+### <a id="focus" name="focus"></a> focus
+
+▸ **focus**(`editorContext`, `context?`): `void`
+
+关注编辑器DOM元素
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[focus](GC.Spread.Sheets.CellTypes.Base.md#focus)
+
+___
+
+### <a id="format" name="format"></a> format
+
+▸ **format**(`value`, `format`, `formattedData?`, `context?`): `string`
+
+将具有指定格式的值格式化为字符串
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `any` | 要格式化的对象值 |
+| `format` | `string` \| [`GeneralFormatter`](GC.Spread.Formatter.GeneralFormatter.md) | 格式化 |
+| `formattedData?` | [`FormattedData`](../interfaces/GC.Spread.Sheets.FormattedData.md) | 格式化的数据 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`string`
+
+返回格式化的字符串
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[format](GC.Spread.Sheets.CellTypes.Base.md#format)
+
+___
+
+### <a id="fromjson" name="fromjson"></a> fromJSON
+
+▸ **fromJSON**(`settings`): `void`
+
+从指定的JSON字符串加载对象状态
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `settings` | `any` | 反序列化的单元格类型数据 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[fromJSON](GC.Spread.Sheets.CellTypes.Base.md#fromjson)
+
+___
+
+### <a id="getautofitheight" name="getautofitheight"></a> getAutoFitHeight
+
+▸ **getAutoFitHeight**(`value`, `text`, `cellStyle`, `zoomFactor`, `context?`): `number`
+
+获取单元格的高度，该高度可用于处理该行的自适应
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `any` | 单元格的值 |
+| `text` | `string` | 单元格的文本 |
+| `cellStyle` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际值 |
+| `zoomFactor` | `number` | 当前表单的缩放系数 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`number`
+
+返回单元格的高度，该高度可用于处理行的自适应
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[getAutoFitHeight](GC.Spread.Sheets.CellTypes.Base.md#getautofitheight)
+
+___
+
+### <a id="getautofitwidth" name="getautofitwidth"></a> getAutoFitWidth
+
+▸ **getAutoFitWidth**(`value`, `text`, `cellStyle`, `zoomFactor`, `context?`): `number`
+
+获取可用于处理列的自适应的单元格宽度
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `any` | 单元格的值 |
+| `text` | `string` | 单元格的文本 |
+| `cellStyle` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际值 |
+| `zoomFactor` | `number` | 当前表单的缩放系数 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`number`
+
+返回单元格的高度，该高度可用于处理列的自适应
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[getAutoFitWidth](GC.Spread.Sheets.CellTypes.Base.md#getautofitwidth)
+
+___
+
+### <a id="geteditorvalue" name="geteditorvalue"></a> getEditorValue
+
+▸ **getEditorValue**(`editorContext`, `context?`): `any`
+
+获取编辑器的值
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`any`
+
+返回编辑器的值
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[getEditorValue](GC.Spread.Sheets.CellTypes.Base.md#geteditorvalue)
+
+___
+
+### <a id="gethitinfo" name="gethitinfo"></a> getHitInfo
+
+▸ **getHitInfo**(`x`, `y`, `cellStyle`, `cellRect`, `context?`): [`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md)
+
+获取单元格类型的匹配信息
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `x` | `number` | 指针相对于画布的当前位置的<i> x </i>坐标 |
+| `y` | `number` | 指针相对于画布的当前位置的<i> y </i>坐标 |
+| `cellStyle` | [`Style`](GC.Spread.Sheets.Style.md) | 当前单元格的实际样式 |
+| `cellRect` | [`Rect`](GC.Spread.Sheets.Rect.md) | 当前单元格的布局信息 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+[`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md)
+
+返回包含<i> x </i>,<i> y </i>,<i> row </i>,<i> col </i>,<i> cellRect </i>的对象 ,以及<i> sheetArea </i>参数，以及一个表示<i> isReservedLocation </i>的值
+如果命中测试位于单元格类型需要处理的特殊区域中，则<i> isReservedLocation </i>为` true ` 否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[getHitInfo](GC.Spread.Sheets.CellTypes.Base.md#gethitinfo)
+
+___
+
+### <a id="iseditingvaluechanged" name="iseditingvaluechanged"></a> isEditingValueChanged
+
+▸ **isEditingValueChanged**(`oldValue`, `newValue`, `context?`): `boolean`
+
+编辑值是否已更改
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `oldValue` | `any` | 旧的编辑值 |
+| `newValue` | `any` | 新的编辑值 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`boolean`
+
+如果oldValue等于newValue,为`true`;否则为`false`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[isEditingValueChanged](GC.Spread.Sheets.CellTypes.Base.md#iseditingvaluechanged)
+
+___
+
+### <a id="isflowlayout" name="isflowlayout"></a> isFlowLayout
+
+▸ **isFlowLayout**(`value?`): `any`
+
+获取或设置buttonList列表的布局是自动调整的
+
+**`代码示例`**
+```
+//本示例创建一个buttonList列表单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+cellType2.isFlowLayout(true);
+activeSheet.getCell(2, 2).cellType(cellType2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `boolean` | 布局是否为自动调整 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回布局是否为自动调整，返回buttonList列表cellType
+
+___
+
+### <a id="isimeaware" name="isimeaware"></a> isImeAware
+
+▸ **isImeAware**(`context?`): `boolean`
+
+此单元格类型是否存在IME
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`boolean`
+
+如果单元格类型存在IME,为`true`;否则为`false`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[isImeAware](GC.Spread.Sheets.CellTypes.Base.md#isimeaware)
+
+___
+
+### <a id="isreservedkey" name="isreservedkey"></a> isReservedKey
+
+▸ **isReservedKey**(`e`, `context?`): `boolean`
+
+单元格类型是否处理键盘事件本身
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `e` | `KeyboardEvent` | 键盘事件 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`boolean`
+
+如果单元格类型处理键盘事件本身，则返回`true`;否则，返回false 否则为`false`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[isReservedKey](GC.Spread.Sheets.CellTypes.Base.md#isreservedkey)
+
+___
+
+### <a id="itemspacing" name="itemspacing"></a> itemSpacing
+
+▸ **itemSpacing**(`value?`): `any`
+
+获取或设置buttonList中两个项的空间
+
+**`代码示例`**
+```
+//本示例创建一个buttonList单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+cellType2.itemSpacing({
+     horizontal:80,
+     vertical:20
+});
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | [`IItemSpacing`](../interfaces/GC.Spread.Sheets.CellTypes.IItemSpacing.md) | buttonList中两个项的空间 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回buttonList中两个项的空间；否则，返回buttonList cellType
+
+___
+
+### <a id="items" name="items"></a> items
+
+▸ **items**(`items?`): `any`
+
+获取或设置buttonList列表的项
+
+**`代码示例`**
+```
+//本示例创建一个buttonList列表单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+activeSheet.getCell(2, 2).cellType(cellType2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `items?` | `string`[] \| [`ICelltypeItemOption`](../interfaces/GC.Spread.Sheets.CellTypes.ICelltypeItemOption.md)[] | buttonList列表的项 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回items数组 否则，返回buttonList列表cellType
+
+___
+
+### <a id="maxcolumncount" name="maxcolumncount"></a> maxColumnCount
+
+▸ **maxColumnCount**(`value?`): `any`
+
+获取或设置buttonList列表的列数的项
+
+**`代码示例`**
+```
+//本示例创建一个buttonList列表单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+cellType2.maxColumnCount(2);
+activeSheet.getCell(2, 2).cellType(cellType2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | buttonList列表的列数 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回列数 否则，返回buttonList列表cellType
+
+___
+
+### <a id="maxrowcount" name="maxrowcount"></a> maxRowCount
+
+▸ **maxRowCount**(`value?`): `any`
+
+获取或设置buttonList列表的行数的项
+
+**`代码示例`**
+```
+//本示例创建buttonList列表单元格
+var cellType2 = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType2.items([{text:"a",value:1},{text:"b",value:2},{text:"c",value:3}]);
+cellType2.maxRowCount(2);
+activeSheet.getCell(2, 2).cellType(cellType2);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `number` | buttonList列表的行数 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回行数；否则，返回buttonList列表cellType
+
+___
+
+### <a id="padding" name="padding"></a> padding
+
+▸ **padding**(`value?`): `any`
+
+获取或设置buttonList相对于单元格的填充(以像素为单位)
+
+**`代码示例`**
+```
+//本示例创建一个buttonList单元并设置其填充
+var cellType = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType.padding("5");
+activeSheet.getCell(0, 2).cellType(cellType);
+activeSheet.setColumnWidth(2, 120.0,GC.Spread.Sheets.SheetArea.viewport);
+activeSheet.setRowHeight(0, 90.0,GC.Spread.Sheets.SheetArea.viewport);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` | buttonList相对于单元格的填充 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回以像素为单位的填充；否则，返回buttonList单元格类型
+
+___
+
+### <a id="paint" name="paint"></a> paint
+
+▸ **paint**(`ctx`, `value`, `x`, `y`, `w`, `h`, `style`, `context?`): `void`
+
+在画布上绘制一个单元格
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ctx` | `CanvasRenderingContext2D` | 画布的二维上下文 |
+| `value` | `any` | 单元格的值 |
+| `x` | `number` | <i> x </i>相对于画布的坐标 |
+| `y` | `number` | 相对于画布的<i> y </i>坐标 |
+| `w` | `number` | 单元格的宽度 |
+| `h` | `number` | 单元格的高度 |
+| `style` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际样式 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[paint](GC.Spread.Sheets.CellTypes.Base.md#paint)
+
+___
+
+### <a id="paintcontent" name="paintcontent"></a> paintContent
+
+▸ **paintContent**(`ctx`, `value`, `x`, `y`, `w`, `h`, `style`, `context?`): `void`
+
+在画布上绘制单元格内容区域
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ctx` | `CanvasRenderingContext2D` | 画布的二维上下文 |
+| `value` | `any` | 单元格的值 |
+| `x` | `number` | <i> x </i>相对于画布的坐标 |
+| `y` | `number` | 相对于画布的<i> y </i>坐标 |
+| `w` | `number` | 单元格内容区域的宽度 |
+| `h` | `number` | 单元格内容区域的高度 |
+| `style` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际样式 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[paintContent](GC.Spread.Sheets.CellTypes.Base.md#paintcontent)
+
+___
+
+### <a id="parse" name="parse"></a> parse
+
+▸ **parse**(`text`, `formatStr`, `context?`): `any`
+
+将具有指定格式字符串的文本解析为对象
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `text` | `string` | 解析文本字符串 |
+| `formatStr` | `string` | 解析格式字符串 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`any`
+
+解析对象
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[parse](GC.Spread.Sheets.CellTypes.Base.md#parse)
+
+___
+
+### <a id="processkeydown" name="processkeydown"></a> processKeyDown
+
+▸ **processKeyDown**(`event`, `context?`): `boolean`
+
+在显示模式下处理按键
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `KeyboardEvent` | 键盘事件 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processKeyDown](GC.Spread.Sheets.CellTypes.Base.md#processkeydown)
+
+___
+
+### <a id="processkeyup" name="processkeyup"></a> processKeyUp
+
+▸ **processKeyUp**(`event`, `context?`): `boolean`
+
+在显示模式下处理按键
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `event` | `KeyboardEvent` | 键盘事件 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processKeyUp](GC.Spread.Sheets.CellTypes.Base.md#processkeyup)
+
+___
+
+### <a id="processmousedown" name="processmousedown"></a> processMouseDown
+
+▸ **processMouseDown**(`hitInfo`): `boolean`
+
+在显示模式下向下处理鼠标
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `hitInfo` | [`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md) | getHitInfo方法返回的命中测试信息 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processMouseDown](GC.Spread.Sheets.CellTypes.Base.md#processmousedown)
+
+___
+
+### <a id="processmouseenter" name="processmouseenter"></a> processMouseEnter
+
+▸ **processMouseEnter**(`hitInfo`): `boolean`
+
+在显示模式下处理鼠标的输入
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `hitInfo` | [`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md) | getHitInfo方法返回的命中测试信息 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processMouseEnter](GC.Spread.Sheets.CellTypes.Base.md#processmouseenter)
+
+___
+
+### <a id="processmouseleave" name="processmouseleave"></a> processMouseLeave
+
+▸ **processMouseLeave**(`hitInfo`): `boolean`
+
+在显示模式下处理鼠标离开
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `hitInfo` | [`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md) | getHitInfo方法返回的命中测试信息 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processMouseLeave](GC.Spread.Sheets.CellTypes.Base.md#processmouseleave)
+
+___
+
+### <a id="processmousemove" name="processmousemove"></a> processMouseMove
+
+▸ **processMouseMove**(`hitInfo`): `boolean`
+
+在显示模式下处理鼠标移动
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `hitInfo` | [`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md) | getHitInfo方法返回的命中测试信息 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processMouseMove](GC.Spread.Sheets.CellTypes.Base.md#processmousemove)
+
+___
+
+### <a id="processmouseup" name="processmouseup"></a> processMouseUp
+
+▸ **processMouseUp**(`hitInfo`): `boolean`
+
+在显示模式下处理鼠标抬起
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `hitInfo` | [`IHitTestCellTypeHitInfo`](../interfaces/GC.Spread.Sheets.IHitTestCellTypeHitInfo.md) | getHitInfo方法返回的命中测试信息 |
+
+#### Returns
+
+`boolean`
+
+如果过程成功，则返回` true `;否则为` false `
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[processMouseUp](GC.Spread.Sheets.CellTypes.Base.md#processmouseup)
+
+___
+
+### <a id="selectall" name="selectall"></a> selectAll
+
+▸ **selectAll**(`editorContext`, `context?`): `void`
+
+选择编辑器DOM元素中的所有文本
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[selectAll](GC.Spread.Sheets.CellTypes.Base.md#selectall)
+
+___
+
+### <a id="selectedbackcolor" name="selectedbackcolor"></a> selectedBackColor
+
+▸ **selectedBackColor**(`value?`): `any`
+
+获取或设置选定的buttonList的背景色
+
+**`代码示例`**
+```
+//本示例创建一个buttonList单元格
+var cellType = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType.selectedBackColor("#FFFF00");
+activeSheet.getCell(0, 2).cellType(cellType);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` | 选定的buttonList的背景色 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回背景色；否则，返回buttonList单元格类型
+
+___
+
+### <a id="selectedforecolor" name="selectedforecolor"></a> selectedForeColor
+
+▸ **selectedForeColor**(`value?`): `any`
+
+获取或设置所选buttonList的前颜色
+
+**`代码示例`**
+```
+//本示例创建一个buttonList单元格
+var cellType = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType.selectedForeColor("#FFFF00");
+activeSheet.getCell(0, 2).cellType(cellType);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | `string` | 所选buttonList的前景色 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回前景色 否则，返回buttonList单元格类型
+
+___
+
+### <a id="selectionmode" name="selectionmode"></a> selectionMode
+
+▸ **selectionMode**(`value?`): `any`
+
+获取或设置buttonList的选择模式
+
+**`代码示例`**
+```
+//本示例创建一个buttonList单元格
+var cellType = new GC.Spread.Sheets.CellTypes.ButtonList();
+cellType.selectionMode(GC.Spread.Sheets.CellTypes.SelectionMode.single);
+activeSheet.getCell(0, 2).cellType(cellType);
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value?` | [`SelectionMode`](../enums/GC.Spread.Sheets.CellTypes.SelectionMode.md) | 所选buttonList的选择模式 |
+
+#### Returns
+
+`any`
+
+如果未设置任何值，则返回选择模式 否则，返回buttonList单元格类型
+
+___
+
+### <a id="seteditorvalue" name="seteditorvalue"></a> setEditorValue
+
+▸ **setEditorValue**(`editorContext`, `value`, `context?`): `void`
+
+设置编辑器的值
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `value` | `any` | 从活动单元格返回的值 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[setEditorValue](GC.Spread.Sheets.CellTypes.Base.md#seteditorvalue)
+
+___
+
+### <a id="tojson" name="tojson"></a> toJSON
+
+▸ **toJSON**(): `any`
+
+将对象状态保存为JSON字符串
+
+#### Returns
+
+`any`
+
+单元格类型数据
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[toJSON](GC.Spread.Sheets.CellTypes.Base.md#tojson)
+
+___
+
+### <a id="updateeditor" name="updateeditor"></a> updateEditor
+
+▸ **updateEditor**(`editorContext`, `cellStyle`, `cellRect`, `context?`): [`Rect`](GC.Spread.Sheets.Rect.md)
+
+更新编辑器的大小
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `cellStyle` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际样式 |
+| `cellRect` | [`Rect`](GC.Spread.Sheets.Rect.md) | 单元格的布局信息 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+[`Rect`](GC.Spread.Sheets.Rect.md)
+
+返回单元格包装器元素的新大小，它应包含两个属性"width"和 "height"
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[updateEditor](GC.Spread.Sheets.CellTypes.Base.md#updateeditor)
+
+___
+
+### <a id="updateeditorcontainer" name="updateeditorcontainer"></a> updateEditorContainer
+
+▸ **updateEditorContainer**(`editorContext`, `editorBounds`, `cellStyle`): `void`
+
+更新单元格wrapper元素的大小
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `editorBounds` | [`Rect`](GC.Spread.Sheets.Rect.md) | 单元格wrapper元素的新大小 |
+| `cellStyle` | [`Style`](GC.Spread.Sheets.Style.md) | 单元格的实际样式 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[updateEditorContainer](GC.Spread.Sheets.CellTypes.Base.md#updateeditorcontainer)
+
+___
+
+### <a id="updateimemode" name="updateimemode"></a> updateImeMode
+
+▸ **updateImeMode**(`editorContext`, `imeMode`, `context?`): `void`
+
+更新编辑器的ime模式
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `editorContext` | `HTMLElement` | 由createEditorElement方法创建的DOM元素 |
+| `imeMode` | [`ImeMode`](../enums/GC.Spread.Sheets.ImeMode.md) | 单元格实际样式中的ime模式 |
+| `context?` | `any` | 与单元格类型关联的上下文 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Base](GC.Spread.Sheets.CellTypes.Base.md).[updateImeMode](GC.Spread.Sheets.CellTypes.Base.md#updateimemode)

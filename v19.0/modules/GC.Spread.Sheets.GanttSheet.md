@@ -1,0 +1,490 @@
+# Namespace: GanttSheet
+
+[Spread](GC.Spread.md).[Sheets](GC.Spread.Sheets.md).GanttSheet
+
+## Table of contents
+
+### Enumerations
+
+- [DayOfWeek](../enums/GC.Spread.Sheets.GanttSheet.DayOfWeek.md)
+- [GanttGridlineType](../enums/GC.Spread.Sheets.GanttSheet.GanttGridlineType.md)
+- [TimescaleTierMode](../enums/GC.Spread.Sheets.GanttSheet.TimescaleTierMode.md)
+- [TimescaleUnit](../enums/GC.Spread.Sheets.GanttSheet.TimescaleUnit.md)
+
+### Classes
+
+- [Calendar](../classes/GC.Spread.Sheets.GanttSheet.Calendar.md)
+- [CalendarSettings](../classes/GC.Spread.Sheets.GanttSheet.CalendarSettings.md)
+- [Collection](../classes/GC.Spread.Sheets.GanttSheet.Collection.md)
+- [CustomWorkWeek](../classes/GC.Spread.Sheets.GanttSheet.CustomWorkWeek.md)
+- [GanttGridlines](../classes/GC.Spread.Sheets.GanttSheet.GanttGridlines.md)
+- [GanttMapping](../classes/GC.Spread.Sheets.GanttSheet.GanttMapping.md)
+- [GanttSheet](../classes/GC.Spread.Sheets.GanttSheet.GanttSheet.md)
+- [NonWorkingTimeStyle](../classes/GC.Spread.Sheets.GanttSheet.NonWorkingTimeStyle.md)
+- [Project](../classes/GC.Spread.Sheets.GanttSheet.Project.md)
+- [Task](../classes/GC.Spread.Sheets.GanttSheet.Task.md)
+- [TaskDependency](../classes/GC.Spread.Sheets.GanttSheet.TaskDependency.md)
+- [TaskbarLayout](../classes/GC.Spread.Sheets.GanttSheet.TaskbarLayout.md)
+- [TaskbarStyleRule](../classes/GC.Spread.Sheets.GanttSheet.TaskbarStyleRule.md)
+- [Timescale](../classes/GC.Spread.Sheets.GanttSheet.Timescale.md)
+- [TimescaleTier](../classes/GC.Spread.Sheets.GanttSheet.TimescaleTier.md)
+- [WorkWeek](../classes/GC.Spread.Sheets.GanttSheet.WorkWeek.md)
+
+### Type aliases
+
+- [Duration](GC.Spread.Sheets.GanttSheet.md#duration)
+- [DurationUnit](GC.Spread.Sheets.GanttSheet.md#durationunit)
+- [GanttGridline](GC.Spread.Sheets.GanttSheet.md#ganttgridline)
+- [GanttGridlineInterval](GC.Spread.Sheets.GanttSheet.md#ganttgridlineinterval)
+- [GridStyle](GC.Spread.Sheets.GanttSheet.md#gridstyle)
+- [IGanttSheetOptions](GC.Spread.Sheets.GanttSheet.md#iganttsheetoptions)
+- [ITaskData](GC.Spread.Sheets.GanttSheet.md#itaskdata)
+- [ITaskDependency](GC.Spread.Sheets.GanttSheet.md#itaskdependency)
+- [NonWorkingTimeDrawMode](GC.Spread.Sheets.GanttSheet.md#nonworkingtimedrawmode)
+- [TaskDependencyType](GC.Spread.Sheets.GanttSheet.md#taskdependencytype)
+- [TaskScheduleMode](GC.Spread.Sheets.GanttSheet.md#taskschedulemode)
+- [TaskStyle](GC.Spread.Sheets.GanttSheet.md#taskstyle)
+- [TaskbarEndShape](GC.Spread.Sheets.GanttSheet.md#taskbarendshape)
+- [TaskbarEndType](GC.Spread.Sheets.GanttSheet.md#taskbarendtype)
+- [TaskbarFillPattern](GC.Spread.Sheets.GanttSheet.md#taskbarfillpattern)
+- [TaskbarLinkMode](GC.Spread.Sheets.GanttSheet.md#taskbarlinkmode)
+- [TaskbarMiddleShape](GC.Spread.Sheets.GanttSheet.md#taskbarmiddleshape)
+- [TaskbarStyle](GC.Spread.Sheets.GanttSheet.md#taskbarstyle)
+- [TaskbarStyleRuleName](GC.Spread.Sheets.GanttSheet.md#taskbarstylerulename)
+- [TextStyle](GC.Spread.Sheets.GanttSheet.md#textstyle)
+- [Time](GC.Spread.Sheets.GanttSheet.md#time)
+- [TimescaleLabelFormatter](GC.Spread.Sheets.GanttSheet.md#timescalelabelformatter)
+- [WorkDay](GC.Spread.Sheets.GanttSheet.md#workday)
+- [WorkTime](GC.Spread.Sheets.GanttSheet.md#worktime)
+
+## Type aliases
+
+### <a id="duration" name="duration"></a> Duration
+
+Ƭ **Duration**: `Object`
+
+表示调度中的持续时间。要创建有效的持续时间，请调用project.parseDuration方法。
+
+**`property`** {number} [value] 表示持续时间的单位值。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.DurationUnit} [unit] 表示值的单位。如果未指定，将使用[GC.Spread.Sheets.GanttSheet.CalendarSettings](../classes/GC.Spread.Sheets.GanttSheet.CalendarSettings.md)中的默认单位。
+
+**`property`** {number} [time] 表示实际的持续时间（以毫秒为单位）。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `time?` | `number` |
+| `unit?` | [`DurationUnit`](GC.Spread.Sheets.GanttSheet.md#durationunit) |
+| `value?` | `number` |
+
+___
+
+### <a id="durationunit" name="durationunit"></a> DurationUnit
+
+Ƭ **DurationUnit**: ``"Month"`` \| ``"Week"`` \| ``"Day"`` \| ``"Hour"`` \| ``"Minute"``
+
+**`description`** 表示持续时间的单位。
+
+___
+
+### <a id="ganttgridline" name="ganttgridline"></a> GanttGridline
+
+Ƭ **GanttGridline**: `Object`
+
+表示如何在甘特图上绘制网格线。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.GanttGridlineType} lineType 线条的类型。
+
+**`property`** {GC.Data.ColorString} lineColor 线条的颜色。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `lineColor` | [`ColorString`](GC.Data.md#colorstring) |
+| `lineType` | [`GanttGridlineType`](../enums/GC.Spread.Sheets.GanttSheet.GanttGridlineType.md) |
+
+___
+
+### <a id="ganttgridlineinterval" name="ganttgridlineinterval"></a> GanttGridlineInterval
+
+Ƭ **GanttGridlineInterval**: `Object`
+
+表示如何在甘特图上绘制带间隔的网格线。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.GanttGridlineType} lineType 普通线条的类型。
+
+**`property`** {GC.Data.ColorString} lineColor 普通线条的颜色。
+
+**`property`** {number} [interval] 间隔计数。间隔值的倍数处的线条将使用intervalType和intervalColor。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.GanttGridlineType} [intervalLineType] 间隔线条的类型。
+
+**`property`** {GC.Data.ColorString} [intervalLineColor] 间隔线条的颜色。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `interval?` | `number` |
+| `intervalLineColor?` | [`ColorString`](GC.Data.md#colorstring) |
+| `intervalLineType?` | [`GanttGridlineType`](../enums/GC.Spread.Sheets.GanttSheet.GanttGridlineType.md) |
+| `lineColor` | [`ColorString`](GC.Data.md#colorstring) |
+| `lineType` | [`GanttGridlineType`](../enums/GC.Spread.Sheets.GanttSheet.GanttGridlineType.md) |
+
+___
+
+### <a id="gridstyle" name="gridstyle"></a> GridStyle
+
+Ƭ **GridStyle**: `Object`
+
+表示任务网格的样式。
+
+**`property`** {string} [font] 表示文本的字体。
+
+**`property`** {GC.Data.ColorString} [color] 表示文本的颜色。
+
+**`property`** {GC.Data.ColorString} [backColor] 表示文本的背景颜色。
+
+**`property`** {GC.Spread.Sheets.TextDecorationType} [textDecoration] 表示文本的装饰。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `backColor?` | `string` |
+| `color?` | `string` |
+| `font?` | `string` |
+| `textDecoration?` | [`TextDecorationType`](../enums/GC.Spread.Sheets.TextDecorationType.md) |
+
+___
+
+### <a id="iganttsheetoptions" name="iganttsheetoptions"></a> IGanttSheetOptions
+
+Ƭ **IGanttSheetOptions**: `Object`
+
+表示甘特表选项
+
+**`property`** {boolean} [enableGanttColumn] 是否显示甘特图列。默认为true.
+
+**`property`** {boolean} [allowAddNew] - 是否允许添加新的空行。
+
+**`property`** {boolean} [sheetTabColor] - 用于表示工作表标签颜色的颜色字符串，如"red"、"#FFFF00"、"rgb(255,0,0)"、"Accent 5"等。
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `allowAddNew?` | `boolean` | 是否允许添加新的空行。 |
+| `enableGanttColumn?` | `boolean` | 是否显示甘特图列。默认为true. |
+| `sheetTabColor?` | `string` | 用于表示工作表标签颜色的颜色字符串，如"red"、"#FFFF00"、"rgb(255,0,0)"、"Accent 5"等。 |
+
+___
+
+### <a id="itaskdata" name="itaskdata"></a> ITaskData
+
+Ƭ **ITaskData**: `Object`
+
+表示用于创建任务的数据。用于项目的添加、插入和更新任务方法中。
+
+**`property`** {string} [name] 表示任务的名称。
+
+**`property`** {Date} [start] 表示任务的开始日期。
+
+**`property`** {Date} [finish] 表示任务的结束日期。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.Duration} [duration] 表示任务的持续时间。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskScheduleMode} [mode] 表示任务的调度模式。
+
+**`property`** {Object.<string, GC.Spread.Sheets.GanttSheet.TaskbarStyle>} [barStyles] 表示任务的条形图样式。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `barStyles?` | { `[key: string]`: [`TaskbarStyle`](GC.Spread.Sheets.GanttSheet.md#taskbarstyle);  } |
+| `duration?` | [`Duration`](GC.Spread.Sheets.GanttSheet.md#duration) |
+| `finish?` | `Date` |
+| `mode?` | [`TaskScheduleMode`](GC.Spread.Sheets.GanttSheet.md#taskschedulemode) |
+| `name?` | `string` |
+| `start?` | `Date` |
+
+___
+
+### <a id="itaskdependency" name="itaskdependency"></a> ITaskDependency
+
+Ƭ **ITaskDependency**: `Object`
+
+表示添加任务依赖关系的一组参数。
+
+**`property`** {number} fromTaskNumber 表示依赖关系来源的任务编号。
+
+**`property`** {number} toTaskNumber 表示依赖关系目标的任务编号。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskDependencyType} [type] 可选。表示依赖类型。默认为'FS'（完成到开始）。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `fromTaskNumber` | `number` |
+| `toTaskNumber` | `number` |
+| `type?` | [`TaskDependencyType`](GC.Spread.Sheets.GanttSheet.md#taskdependencytype) |
+
+___
+
+### <a id="nonworkingtimedrawmode" name="nonworkingtimedrawmode"></a> NonWorkingTimeDrawMode
+
+Ƭ **NonWorkingTimeDrawMode**: ``"Behind"`` \| ``"None"``
+
+**`description`** 表示如何在甘特图中绘制非工作时间区域。
+
+___
+
+### <a id="taskdependencytype" name="taskdependencytype"></a> TaskDependencyType
+
+Ƭ **TaskDependencyType**: ``"FS"`` \| ``"SS"`` \| ``"FF"`` \| ``"SF"``
+
+**`description`** 表示任务依赖关系的类型。
+
+___
+
+### <a id="taskschedulemode" name="taskschedulemode"></a> TaskScheduleMode
+
+Ƭ **TaskScheduleMode**: ``"Auto"`` \| ``"Manual"``
+
+**`description`** 表示任务的调度模式。
+
+___
+
+### <a id="taskstyle" name="taskstyle"></a> TaskStyle
+
+Ƭ **TaskStyle**: `Object`
+
+表示任务的样式。
+
+**`property`** {string} [name] 表示任务样式的名称。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarStyle} [taskbarStyle] 表示任务条部分的样式。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.GridStyle} [gridStyle] 表示任务网格部分的样式。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `gridStyle?` | [`GridStyle`](GC.Spread.Sheets.GanttSheet.md#gridstyle) |
+| `name?` | `string` |
+| `taskbarStyle?` | [`TaskbarStyle`](GC.Spread.Sheets.GanttSheet.md#taskbarstyle) |
+
+___
+
+### <a id="taskbarendshape" name="taskbarendshape"></a> TaskbarEndShape
+
+Ƭ **TaskbarEndShape**: ``"arrowDown"`` \| ``"arrowUp"`` \| ``"caretDownTop"`` \| ``"caretUpBottom"`` \| ``"circle"`` \| ``"circleArrowDown"`` \| ``"circleArrowUp"`` \| ``"circleDiamond"`` \| ``"circleTriangleDown"`` \| ``"circleTriangleUp"`` \| ``"diamond"`` \| ``"houseDown"`` \| ``"houseUp"`` \| ``"leftBracket"`` \| ``"leftFade"`` \| ``"lineShape"`` \| ``"rightBracket"`` \| ``"rightFade"`` \| ``"square"`` \| ``"star"`` \| ``"triangleDown"`` \| ``"triangleLeft"`` \| ``"triangleRight"`` \| ``"triangleUp"``
+
+**`description`** 表示任务条起始部分和结束部分的形状。
+
+___
+
+### <a id="taskbarendtype" name="taskbarendtype"></a> TaskbarEndType
+
+Ƭ **TaskbarEndType**: ``"solid"`` \| ``"dashed"`` \| ``"framed"``
+
+**`description`** 表示任务条结束形状的绘制类型。
+
+___
+
+### <a id="taskbarfillpattern" name="taskbarfillpattern"></a> TaskbarFillPattern
+
+Ƭ **TaskbarFillPattern**: ``"hollow"`` \| ``"solidFill"`` \| ``"lightFill"`` \| ``"mediumFill"`` \| ``"darkFill"`` \| ``"diagonalRight"`` \| ``"diagonalLeft"`` \| ``"diagonalCross"`` \| ``"lineVertical"`` \| ``"lineHorizontal"`` \| ``"lineCross"`` \| ``"dashedBorder"``
+
+**`description`** 表示甘特图中任务条中间部分或非工作时间区域的填充图案。
+
+___
+
+### <a id="taskbarlinkmode" name="taskbarlinkmode"></a> TaskbarLinkMode
+
+Ƭ **TaskbarLinkMode**: ``"noLinks"`` \| ``"toEnd"`` \| ``"toTop"``
+
+**`description`** 表示如何绘制任务条之间的连接线。
+
+___
+
+### <a id="taskbarmiddleshape" name="taskbarmiddleshape"></a> TaskbarMiddleShape
+
+Ƭ **TaskbarMiddleShape**: ``"rectangleBar"`` \| ``"lineTop"`` \| ``"lineMiddle"`` \| ``"lineBottom"`` \| ``"rectangleTop"`` \| ``"rectangleMiddle"`` \| ``"rectangleBottom"``
+
+**`description`** 表示任务条中间部分的形状。
+
+___
+
+### <a id="taskbarstyle" name="taskbarstyle"></a> TaskbarStyle
+
+Ƭ **TaskbarStyle**: `Object`
+
+表示任务条的样式。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarEndShape} [startShape] 表示起始部分的形状。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarEndType} [startType] 表示起始部分的类型。
+
+**`property`** {GC.Data.ColorString} [startColor] 表示起始部分的颜色。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarEndShape} [endShape] 表示结束部分的形状。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarEndType} [endType] 表示结束部分的类型。
+
+**`property`** {GC.Data.ColorString} [endColor] 表示结束部分的颜色。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarMiddleShape} [middleShape] 表示中间部分的形状。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TaskbarFillPattern} [middlePattern] 表示中间部分的填充图案。
+
+**`property`** {GC.Data.ColorString} [middleColor] 表示中间部分的颜色。
+
+**`property`** {string} [leftText] 表示任务字段或公式的名称，其值将显示在任务条左侧的文本中。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TextStyle} [leftTextStyle] 表示任务条左侧任务字段的样式。
+
+**`property`** {string} [rightText] 表示任务字段或公式的名称，其值将显示在任务条右侧的文本中。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TextStyle} [rightTextStyle] 表示任务条右侧任务字段的样式。
+
+**`property`** {string} [topText] 表示任务字段或公式的名称，其值将显示在任务条上方的文本中。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TextStyle} [topTextStyle] 表示任务条上方任务字段的样式。
+
+**`property`** {string} [bottomText] 表示任务字段或公式的名称，其值将显示在任务条下方的文本中。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TextStyle} [bottomTextStyle] 表示任务条下方任务字段的样式。
+
+**`property`** {string} [insideText] 表示任务字段或公式的名称，其值将显示在任务条内部的文本中。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.TextStyle} [insideTextStyle] 表示任务条内部任务字段的样式。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `bottomText?` | `string` |
+| `bottomTextStyle?` | [`TextStyle`](GC.Spread.Sheets.GanttSheet.md#textstyle) |
+| `endColor?` | [`ColorString`](GC.Data.md#colorstring) |
+| `endShape?` | [`TaskbarEndShape`](GC.Spread.Sheets.GanttSheet.md#taskbarendshape) |
+| `endType?` | [`TaskbarEndType`](GC.Spread.Sheets.GanttSheet.md#taskbarendtype) |
+| `insideText?` | `string` |
+| `insideTextStyle?` | [`TextStyle`](GC.Spread.Sheets.GanttSheet.md#textstyle) |
+| `leftText?` | `string` |
+| `leftTextStyle?` | [`TextStyle`](GC.Spread.Sheets.GanttSheet.md#textstyle) |
+| `middleColor?` | [`ColorString`](GC.Data.md#colorstring) |
+| `middlePattern?` | [`TaskbarFillPattern`](GC.Spread.Sheets.GanttSheet.md#taskbarfillpattern) |
+| `middleShape?` | [`TaskbarMiddleShape`](GC.Spread.Sheets.GanttSheet.md#taskbarmiddleshape) |
+| `rightText?` | `string` |
+| `rightTextStyle?` | [`TextStyle`](GC.Spread.Sheets.GanttSheet.md#textstyle) |
+| `startColor?` | [`ColorString`](GC.Data.md#colorstring) |
+| `startShape?` | [`TaskbarEndShape`](GC.Spread.Sheets.GanttSheet.md#taskbarendshape) |
+| `startType?` | [`TaskbarEndType`](GC.Spread.Sheets.GanttSheet.md#taskbarendtype) |
+| `topText?` | `string` |
+| `topTextStyle?` | [`TextStyle`](GC.Spread.Sheets.GanttSheet.md#textstyle) |
+
+___
+
+### <a id="taskbarstylerulename" name="taskbarstylerulename"></a> TaskbarStyleRuleName
+
+Ƭ **TaskbarStyleRuleName**: ``"projectSummary"`` \| ``"summary"`` \| ``"manualSummary"`` \| ``"task"`` \| ``"manualTask"`` \| ``"milestone"`` \| ``"manualMilestone"`` \| ``"progress"`` \| ``"manualProgress"`` \| ``"startOnly"`` \| ``"finishOnly"`` \| ``"durationOnly"`` \| ``"startOnlyMilestone"`` \| ``"finishOnlyMilestone"`` \| ``"durationOnlyMilestone"``
+
+**`description`** 表示内置任务条样式规则的名称。用于project.taskStyleRules.getRule方法。
+
+___
+
+### <a id="textstyle" name="textstyle"></a> TextStyle
+
+Ƭ **TextStyle**: `Object`
+
+表示甘特图上的时间刻度线和任务条的文本样式。
+
+**`property`** {string} [font] 表示文本的字体。
+
+**`property`** {GC.Data.ColorString} [color] 表示文本的颜色。
+
+**`property`** {GC.Spread.Sheets.TextDecorationType} [textDecoration] 表示文本的装饰。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `color?` | [`ColorString`](GC.Data.md#colorstring) |
+| `font?` | `string` |
+| `textDecoration?` | [`TextDecorationType`](../enums/GC.Spread.Sheets.TextDecorationType.md) |
+
+___
+
+### <a id="time" name="time"></a> Time
+
+Ƭ **Time**: `Object`
+
+表示包含小时和分钟的时间值。
+
+**`property`** {number} hour 表示小时。可以是0到24。
+
+**`property`** {number} minute 表示分钟。可以是0到59。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `hour` | `number` |
+| `minute` | `number` |
+
+___
+
+### <a id="timescalelabelformatter" name="timescalelabelformatter"></a> TimescaleLabelFormatter
+
+Ƭ **TimescaleLabelFormatter**: (`date`: `Date`, `project`: [`Project`](../classes/GC.Spread.Sheets.GanttSheet.Project.md)) => `string`
+
+#### Type declaration
+
+▸ (`date`, `project`): `string`
+
+用于格式化时间刻度标签的回调函数。
+
+##### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `date` | `Date` | 指定要格式化的日期。 |
+| `project` | [`Project`](../classes/GC.Spread.Sheets.GanttSheet.Project.md) | 时间刻度所属的项目。可以用于格式化，如使用开始日期、日历设置或其他数据。 |
+
+##### Returns
+
+`string`
+
+___
+
+### <a id="workday" name="workday"></a> WorkDay
+
+Ƭ **WorkDay**: [`WorkTime`](GC.Spread.Sheets.GanttSheet.md#worktime)[]
+
+表示一天中的工作时间段。
+
+___
+
+### <a id="worktime" name="worktime"></a> WorkTime
+
+Ƭ **WorkTime**: `Object`
+
+表示一天中的工作时间段。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.Time} start 表示开始时间。可以是0:00到23:59。
+
+**`property`** {GC.Spread.Sheets.GanttSheet.Time} end 表示结束时间。可以是0:01到24:00。
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `end` | [`Time`](GC.Spread.Sheets.GanttSheet.md#time) |
+| `start` | [`Time`](GC.Spread.Sheets.GanttSheet.md#time) |

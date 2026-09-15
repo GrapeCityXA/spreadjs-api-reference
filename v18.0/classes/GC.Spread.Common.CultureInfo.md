@@ -1,0 +1,307 @@
+# Class: CultureInfo
+
+[Spread](../modules/GC.Spread.md).[Common](../modules/GC.Spread.Common.md).CultureInfo
+
+## Table of contents
+
+### Constructors
+
+- [constructor](GC.Spread.Common.CultureInfo.md#constructor)
+
+### Properties
+
+- [DateTimeFormat](GC.Spread.Common.CultureInfo.md#datetimeformat)
+- [LocalNumberFormat](GC.Spread.Common.CultureInfo.md#localnumberformat)
+- [NumberFormat](GC.Spread.Common.CultureInfo.md#numberformat)
+- [TextFormat](GC.Spread.Common.CultureInfo.md#textformat)
+- [displayName](GC.Spread.Common.CultureInfo.md#displayname)
+- [id](GC.Spread.Common.CultureInfo.md#id)
+- [predefinedFormats](GC.Spread.Common.CultureInfo.md#predefinedformats)
+
+### Methods
+
+- [name](GC.Spread.Common.CultureInfo.md#name)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new CultureInfo**()
+
+自定义本地化的类，成员变量可以被覆盖
+
+## Properties
+
+### <a id="datetimeformat" name="datetimeformat"></a> DateTimeFormat
+
+• **DateTimeFormat**: [`IDateTimeFormat`](../interfaces/GC.Spread.Common.IDateTimeFormat.md)
+
+日期时间格式字段
+
+**`example`**
+```
+// 本示例创建了自定义本地化
+var myCulture = new GC.Spread.Common.CultureInfo();
+myCulture.NumberFormat.currencySymbol = "\u20ac"
+myCulture.NumberFormat.numberDecimalSeparator = ",";
+myCulture.NumberFormat.numberGroupSeparator = ".";
+myCulture.NumberFormat.arrayGroupSeparator = ";";
+myCulture.NumberFormat.arrayListSeparator = "\\";
+myCulture.NumberFormat.listSeparator = ";";
+myCulture.DateTimeFormat.amDesignator = "";
+myCulture.DateTimeFormat.pmDesignator = "";
+myCulture.DateTimeFormat.abbreviatedMonthNames = ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""];
+myCulture.DateTimeFormat.abbreviatedDayNames = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+myCulture.DateTimeFormat.abbreviatedMonthGenitiveNames = ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""];
+myCulture.DateTimeFormat.dayNames = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+myCulture.DateTimeFormat.fullDateTimePattern = "dddd, d. MMMM yyyy HH:mm:ss";
+myCulture.DateTimeFormat.longDatePattern = "dddd, d. MMMM yyyy";
+myCulture.DateTimeFormat.longTimePattern = "HH:mm:ss";
+myCulture.DateTimeFormat.monthDayPattern = "dd MMMM";
+myCulture.DateTimeFormat.monthNames = ["Januar", "Februar", "M\xe4rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""];
+myCulture.DateTimeFormat.monthGenitiveNames = ["Januar", "Februar", "M\xe4rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""];
+myCulture.DateTimeFormat.shortDatePattern = "dd.MM.yyyy";
+myCulture.DateTimeFormat.shortTimePattern = "HH:mm";
+myCulture.DateTimeFormat.yearMonthPattern = "MMMM yyyy";
+//添加一个本地化信息
+GC.Spread.Common.CultureManager.addCultureInfo("de-DE", myCulture);
+//switch to "de-DE" culture
+GC.Spread.Common.CultureManager.culture("de-DE");
+var d = new Date();
+//本地化
+activeSheet.setValue(1, 0, new Date(d.setDate(d.getDate() + 1)));
+activeSheet.getCell(1, 0).formatter("mmm");
+var dvalue = 12345.6789;
+activeSheet.setColumnWidth(0, 200);
+activeSheet.setColumnWidth(1, 200);
+activeSheet.setColumnWidth(2, 200);
+activeSheet.setValue(0, 0, dvalue);
+activeSheet.getCell(0, 0).formatter("###,###.00");
+activeSheet.setValue(2, 0, new Date(d.setDate(d.getDate() + 1)));
+//本地化
+activeSheet.getCell(3, 0).formatter("yyyy/mmm/dddd");
+activeSheet.setValue(3, 0, new Date());
+```
+
+___
+
+### <a id="localnumberformat" name="localnumberformat"></a> LocalNumberFormat
+
+• **LocalNumberFormat**: [`ILocalNumberFormat`](../interfaces/GC.Spread.Common.ILocalNumberFormat.md)
+
+表示内置的本地号码格式。 它是一个映射，其键是数字，值是 formatString
+
+**`example`**
+```
+//这是 LocalNumberFormat 的示例
+var cultureInfo = new GC.Spread.Common.CultureInfo().
+cultureInfo.LocalNumberFormat = {
+ 14:"yyyy-mm-dd",
+ 15:"yyyy/mm/dd"
+}
+```
+
+___
+
+### <a id="numberformat" name="numberformat"></a> NumberFormat
+
+• **NumberFormat**: [`INumberFormat`](../interfaces/GC.Spread.Common.INumberFormat.md)
+
+所有的数字格式字段
+
+**`example`**
+```
+// This example creates a custom culture.
+var myCulture = new GC.Spread.Common.CultureInfo();
+myCulture.NumberFormat.currencySymbol = "\u20ac"
+myCulture.NumberFormat.numberDecimalSeparator = ",";
+myCulture.NumberFormat.numberGroupSeparator = ".";
+myCulture.NumberFormat.arrayGroupSeparator = ";";
+myCulture.NumberFormat.arrayListSeparator = "\\";
+myCulture.NumberFormat.dbNumber = {
+   1: {letters: ['\u5146', '\u5343', '\u767e', '\u5341', '\u4ebf', '\u5343', '\u767e', '\u5341', '\u4e07', '\u5343', '\u767e', '\u5341', ''], // \u5146\u5343\u767e\u5341\u4ebf\u5343\u767e\u5341\u4e07\u5343\u767e\u5341
+       numbers: ['\u25cb', '\u4e00', '\u4e8c', '\u4e09', '\u56db', '\u4e94', '\u516d', '\u4e03', '\u516b', '\u4e5d'] }, // \u25cb\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d
+   2: {letters: ['\u5146', '\u4edf', '\u4f70', '\u62fe', '\u4ebf', '\u4edf', '\u4f70', '\u62fe', '\u4e07', '\u4edf', '\u4f70', '\u62fe', ''], // \u5146\u4edf\u4f70\u62fe\u4ebf\u4edf\u4f70\u62fe\u4e07\u4edf\u4f70\u62fe
+       numbers: ['\u96f6', '\u58f9', '\u8d30', '\u53c1', '\u8086', '\u4f0d', '\u9646', '\u67d2', '\u634c', '\u7396']}, // \u96f6\u58f9\u8d30\u53c1\u8086\u4f0d\u9646\u67d2\u634c\u7396
+   3: {letters: null,
+       numbers: ['\uff10', '\uff11', '\uff12', '\uff13', '\uff14', '\uff15', '\uff16', '\uff17', '\uff18', '\uff19']} // \uff10\uff11\uff12\uff13\uff14\uff15\uff16\uff17\uff18\uff19
+};
+myCulture.NumberFormat.listSeparator = ";";
+myCulture.DateTimeFormat.amDesignator = "";
+myCulture.DateTimeFormat.pmDesignator = "";
+myCulture.DateTimeFormat.abbreviatedMonthNames = ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""];
+myCulture.DateTimeFormat.abbreviatedDayNames = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+myCulture.DateTimeFormat.abbreviatedMonthGenitiveNames = ["Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", ""];
+myCulture.DateTimeFormat.dayNames = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+myCulture.DateTimeFormat.fullDateTimePattern = "dddd, d. MMMM yyyy HH:mm:ss";
+myCulture.DateTimeFormat.longDatePattern = "dddd, d. MMMM yyyy";
+myCulture.DateTimeFormat.longTimePattern = "HH:mm:ss";
+myCulture.DateTimeFormat.monthDayPattern = "dd MMMM";
+myCulture.DateTimeFormat.monthNames = ["Januar", "Februar", "M\xe4rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""];
+myCulture.DateTimeFormat.monthGenitiveNames = ["Januar", "Februar", "M\xe4rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember", ""];
+myCulture.DateTimeFormat.shortDatePattern = "dd.MM.yyyy";
+myCulture.DateTimeFormat.shortTimePattern = "HH:mm";
+myCulture.DateTimeFormat.yearMonthPattern = "MMMM yyyy";
+//添加一个本地化信息
+GC.Spread.Common.CultureManager.addCultureInfo("de-DE", myCulture);
+//switch to "de-DE" culture
+GC.Spread.Common.CultureManager.culture("de-DE");
+var d = new Date();
+//本地化
+activeSheet.setValue(1, 0, new Date(d.setDate(d.getDate() + 1)));
+activeSheet.getCell(1, 0).formatter("mmm");
+var dvalue = 12345.6789;
+activeSheet.setColumnWidth(0, 200);
+activeSheet.setColumnWidth(1, 200);
+activeSheet.setColumnWidth(2, 200);
+activeSheet.setValue(0, 0, dvalue);
+activeSheet.getCell(0, 0).formatter("###,###.00");
+activeSheet.setValue(2, 0, new Date(d.setDate(d.getDate() + 1)));
+//本地化
+activeSheet.getCell(3, 0).formatter("yyyy/mmm/dddd");
+activeSheet.setValue(3, 0, new Date());
+```
+
+___
+
+### <a id="textformat" name="textformat"></a> TextFormat
+
+• **TextFormat**: [`ITextFormat`](../interfaces/GC.Spread.Common.ITextFormat.md)
+
+表示文本格式字段
+
+**`example`**
+```
+// This example modify culture line breaking strategy.
+var myCulture = GC.Spread.Common.CultureManager.getCultureInfo();
+myCulture.TextFormat.lineBreakingChar = [" ", "+"]; // can line breaking when "+"
+myCulture.TextFormat.lineBreakingForbidStart = ["\u300b"]; // the \u300bwon't be start of the breaking line
+myCulture.TextFormat.lineBreakingForbidEnd = ["\u300a"]; // the \u300a won't be end of the breaking line
+activeSheet.setValue(0, 0, "1. 1+2+3+4+5+6+7");
+activeSheet.getCell(0, 0).wordWrap(true);  // the "1. " won't be in a single line
+activeSheet.setValue(1, 0, "\u300aabc\u300b\u300adef\u300b\u300aghk\u300b");
+activeSheet.getCell(1, 0).wordWrap(true);  // the\u300a \u300bwill looks better
+```
+
+___
+
+### <a id="displayname" name="displayname"></a> displayName
+
+• **displayName**: `string`
+
+显示在格式对话框的位置下拉列表或符号下拉列表中的名称
+
+**`example`**
+```
+//This example set the displayName of CultureInfo:
+var culture = new GC.Spread.Common.CultureInfo();
+culture.displayName = "English(U.S.)"
+```
+
+___
+
+### <a id="id" name="id"></a> id
+
+• **id**: `number`
+
+id可以用来指定数字格式的CultureInfo
+
+**`example`**
+```
+//This example adds a new CultureInfo and affects the number format.
+let culture = new GC.Spread.Common.CultureInfo();
+culture.id = 0x407;
+culture.NumberFormat.numberDecimalSeparator = ",";
+culture.NumberFormat.numberGroupSeparator = ".";
+culture.NumberFormat.listSeparator = "";
+culture.name = function () { return "de-DE"; };
+GC.Spread.Common.CultureManager.addCultureInfo(culture.name(), culture);
+let formatter = new GC.Spread.Formatter.GeneralFormatter("[$-407]0,000.000");
+let result = formatter.format(100000); //result: '100.000,000'
+```
+
+___
+
+### <a id="predefinedformats" name="predefinedformats"></a> predefinedFormats
+
+• **predefinedFormats**: [`IPredefinedFormats`](../interfaces/GC.Spread.Common.IPredefinedFormats.md)
+
+预定义格式是一个对象，描述格式对话框中的部分数字格式
+打开格式对话框时，设计器读取所有 CultureInfo 中的预定义格式以显示文化相关格式
+
+**`example`**
+```
+//This is an example for predefinedFormats:
+var culture = new GC.Spread.Common.CultureInfo()
+culture.predefinedFormats = {
+    Accounting: '_($* #,##0._);_($* (#,##0.);_($* "-"._);_(@_)',
+    Currency: [
+        "[$$-409]#,##0.",
+        "[$$-409]#,##0.;[Red][$$-409]#,##0.",
+        "[$$-409]#,##0._);([$$-409]#,##0.)",
+        "[$$-409]#,##0._);[Red]([$$-409]#,##0.)"
+    ],
+    Date: [
+        "m/d/yyyy",
+        "[$-409]dddd, mmmm dd, yyyy",
+        "m/d;@",
+        "m/d/yy;@",
+        "mm/dd/yy;@",
+        "[$-409]d-mmm;@",
+        "[$-409]d-mmm-yy;@",
+        "[$-409]mmm-yy;@",
+        "[$-409]mmmm-yy;@",
+        "[$-409]mmmm d, yyyy;@",
+        "[$-409]m/d/yy h:mm AM/PM;@",
+        "m/d/yy h:mm;@",
+        "[$-409]mmmmm;@",
+        "[$-409]mmmmm-yy;@",
+        "m/d/yyyy;@",
+        "[$-409]d-mmm-yyyy;@",
+    ],
+    Time: [
+        "[$-409]h:mm:ss AM/PM",
+        "h:mm;@",
+        "[$-409]h:mm AM/PM;@",
+        "h:mm:ss;@",
+        "[$-409]h:mm:ss AM/PM;@",
+        "mm:ss.0;@",
+        "[h]:mm:ss;@",
+        "[$-409]m/d/yy h:mm AM/PM;@",
+        "m/d/yy h:mm;@"
+    ],
+    Special: {
+        "Zip Code": "00000",
+        "Zip Code + 4": "00000-0000",
+        "Phone Number": "[<=9999999]###-####;(###) ###-####",
+        "Social Security Number": "000-00-0000"
+    }
+};
+```
+
+## Methods
+
+### <a id="name" name="name"></a> name
+
+▸ **name**(): `string`
+
+获取CultureInfo的名称，例如 "de-DE"
+
+**`example`**
+```
+//此示例添加并获取新的 CultureInfo
+let cultureInfo = new GC.Spread.Common.CultureInfo();
+cultureInfo.id = 0x407;
+cultureInfo.NumberFormat.numberDecimalSeparator = ",";
+cultureInfo.NumberFormat.numberGroupSeparator = ".";
+cultureInfo.NumberFormat.listSeparator = "";
+cultureInfo.name = function () { return "de-DE"; };
+GC.Spread.Common.CultureManager.addCultureInfo(cultureInfo.name(), cultureInfo);
+console.log(cultureInfo === GC.Spread.Common.CultureManager.getCultureInfo("de-DE"));//output: true
+```
+
+#### Returns
+
+`string`
+
+区域性信息（CultureInfo）的名称
