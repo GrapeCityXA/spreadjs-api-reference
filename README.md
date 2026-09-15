@@ -2,13 +2,21 @@
 
 SpreadJS 完整 API 参考，纯文本 Markdown，按版本分目录。这份说明主要给 AI 编码助手读：定位和解析符号需要的信息都在下面。
 
-[English](README.md) | **中文**
+[English](README.en.md) | **中文**
 
 ---
 
 ## 这是什么
 
 每个 `v<版本>/` 目录是一份完整的 API 参考，由 TypeDoc 从 SpreadJS 源码注释生成。说明文字是中文，签名、类型名和示例代码与语言无关。
+
+## 相关仓库
+
+| 仓库 | 内容 |
+| --- | --- |
+| [spreadjs-docs](https://github.com/GrapeCityXA/spreadjs-docs) | 产品文档：使用指南、功能说明、公式函数参考，按版本分目录 |
+| [spreadjs-api-reference](https://github.com/GrapeCityXA/spreadjs-api-reference) | API 参考：TypeDoc 生成的完整符号文档，按版本分目录（本仓库） |
+| [spreadjs-practice-samples](https://github.com/GrapeCityXA/spreadjs-practice-samples) | 实战示例：按场景分类的可运行示例工程 |
 
 ## 定位一个符号
 
